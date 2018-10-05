@@ -2,8 +2,8 @@
 \documentclass[a4paper,11pt,twoside,openright,titlepage]{book}
 \usepackage[a4paper,left=1in,right=1in,top=0.6in]{geometry}
 
-\usepackage[T1]{fontenc}    %Ineterprete de tíldes
-%\usepackage[Latin1]{inputenc}
+\usepackage[T1]{fontenc}    %Ineterprete de tï¿½ldes
+\usepackage[latin1]{inputenc}
 %\usepackage[Latin1]{inputenc}
 \usepackage{amsmath,amssymb}    %Paquete de entornos matematicos
 
@@ -28,10 +28,10 @@
 \usepackage{fancybox}   %Para tablas con bordes redondeados
 
 
-%% Modificación de la plantilla para adaptarla a los requisitos de PFC
+%% Modificaciï¿½n de la plantilla para adaptarla a los requisitos de PFC
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-%%% Cabeceras y pies de página
+%%% Cabeceras y pies de pï¿½gina
 \fancyhead[CE,CO]{\emph{\titulo}}
 \fancyhead[LE,LO,RE,RO]{}
 \fancyfoot[LE,RO]{\thepage}
@@ -49,19 +49,19 @@
 
 \newcommand{\lsection}[1]
                 {\section{#1}
-                \vskip-.9\resalto   %%%% Aquí reculo el posible salto por defecto de \section
+                \vskip-.9\resalto   %%%% Aquï¿½ reculo el posible salto por defecto de \section
                 \hrule
                 \vskip+.9\salto}  %%%% vuelvo ha realizar el salto (puedes poner otra vez el 90%)
 
 
-%Para imágenes de entornos estáticos \captionFigure{Texto Caption}{Texto Label}
+%Para imï¿½genes de entornos estï¿½ticos \captionFigure{Texto Caption}{Texto Label}
 \newcommand{\captionFigure}[2]{
     \refstepcounter{figure}
     \centerline{Figura \thefigure: #1 \label{#2}}
     \addcontentsline{lof}{section}{\thefigure.\ #1\label{#2}}
 }
 
-%Para imágenes de entornos estáticos \NOcaptionFigure{Texto Caption}{Texto Label} "No escribe el caption"
+%Para imï¿½genes de entornos estï¿½ticos \NOcaptionFigure{Texto Caption}{Texto Label} "No escribe el caption"
 \newcommand{\NOcaptionFigure}[2]{
     \refstepcounter{figure}
     \addcontentsline{lof}{figure}{\thefigure.\ #1\label{#2}}
@@ -69,7 +69,7 @@
 
 
 %% Datos del PFC
-\newcommand{\titulo}{Título del TFM}
+\newcommand{\titulo}{T\'itulo del TFM}
 \newcommand{\autor}{Autor: Nombre Apellido1 Apellido2}
 \newcommand{\director}{Nombre Apellido1 Apellido2}
 \newcommand{\tutor}{Tutor: Nombre Apellido1 Apellido2}
@@ -79,15 +79,15 @@
 \newcommand{\presidente}{Nombre Apellido1 Apellido2}
 \newcommand{\presidentesup}{Nombre Apellido1 Apellido2}
 \newcommand{\fecha}{MES 20xx}
-\newcommand{\carrera}{Máster en ...}
+\newcommand{\carrera}{M\'aster en ...}
 
 \begin{document}
 \setlength{\baselineskip}{18pt}  %% Espacio interlinea
-\setlength{\parskip}{6pt plus 1pt minus 1pt} %% Espacio interpárrafo
+\setlength{\parskip}{6pt plus 1pt minus 1pt} %% Espacio interpï¿½rrafo
 
 \input{portada}
 
-\frontmatter %Define el cuerpo inicial del libro en numeración con letras romanas
+\frontmatter %Define el cuerpo inicial del libro en numeraciï¿½n con letras romanas
 
 \input{primera_pag}
 
@@ -97,21 +97,21 @@
 
 \tableofcontents
 
-\newpage \thispagestyle{empty} % Página vacía
+\newpage \thispagestyle{empty} % Pï¿½gina vacï¿½a
 
-\addcontentsline{toc}{chapter}{Índice de Figuras}    %Para que aparezca en el índice
-\renewcommand{\listfigurename}{Índice de Figuras} 
+\addcontentsline{toc}{chapter}{ï¿½ndice de Figuras}    %Para que aparezca en el ï¿½ndice
+\renewcommand{\listfigurename}{ï¿½ndice de Figuras} 
 \listoffigures
 
-\newpage \thispagestyle{empty} % Página vacía
+\newpage \thispagestyle{empty} % Pï¿½gina vacï¿½a
 
-\addcontentsline{toc}{chapter}{Índice de Tablas}    %Para que aparezca en el índice
-\renewcommand{\listtablename}{Índice de Tablas} 
+\addcontentsline{toc}{chapter}{ï¿½ndice de Tablas}    %Para que aparezca en el ï¿½ndice
+\renewcommand{\listtablename}{ï¿½ndice de Tablas} 
 \listoftables
 
-\newpage \thispagestyle{empty} % Página vacía
+\newpage \thispagestyle{empty} % Pï¿½gina vacï¿½a
 
-\mainmatter %Define el cuerpo principal del libro numeración normal.
+\mainmatter %Define el cuerpo principal del libro numeraciï¿½n normal.
 
 % \input{preambulo}
 
@@ -130,7 +130,7 @@
 \bibliographystyle{unsrt}   %plain pero ordenado en orden de aparacicion en documento principal
 \bibliography{bibliografia}
 
-\appendix   %Indicamos que lo que viene a continuación son apéndices
+\appendix   %Indicamos que lo que viene a continuaciï¿½n son apï¿½ndices
 
 %\frontmatter %Para poner los anexos en numeros romanos
 
@@ -139,6 +139,6 @@
 \input{anexo_manualprogramador}
 
 %Hoja final en blanco
-\newpage \thispagestyle{empty} % Página vacía
+\newpage \thispagestyle{empty} % Pï¿½gina vacï¿½a
 
 \end{document}
