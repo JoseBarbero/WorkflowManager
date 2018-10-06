@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{2}
+Docker - {Build}, {Ship}, and {Run} {Any} {App}, {Anywhere}.
+\newblock \url{https://www.docker.com/}.
+
+\bibitem{1}
+Galaxy.
+\newblock \url{https://usegalaxy.org/}.
+
+\bibitem{4}
+Galaxy {API}.
+\newblock \url{https://galaxyproject.org/develop/api/}.
+
+\bibitem{article:Ejemplo}
+Autor Apellidos.
+\newblock Titulo del artículo.
+\newblock {\em Revista de publicación}, pages 65--73, 2008.
+
+\bibitem{3}
+Sergio Chico.
+\newblock :whale: {Docker} with {Galaxy} for {Bioinformatic} {Bacterial}
+  {Sequencing} {Workflows}: {Serux}/docker-galaxy-{BioInfWorkflow}.
+\newblock \url{https://github.com/Serux/docker-galaxy-BioInfWorkflow}, June
+  2018.
+\newblock original-date: 2018-05-17T01:10:05Z.
+
+\end{thebibliography}

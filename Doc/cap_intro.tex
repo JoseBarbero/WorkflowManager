@@ -15,17 +15,17 @@ Ejemplo de imagen:
   \label{fig:norm_Daugman}
 \end{figure}
 
-\lsection{Objetivos y enfoque}
+\section{Objetivos y enfoque}
 
-\lsection{Metodología y plan de trabajo}
+\section{Metodología y plan de trabajo}
+\subsection{Metodología}
 
-Otro ejemplo de imagen:
-\begin{figure}[h]
-  \centerline{
-    \mbox{\includegraphics[width=3.00in]{images/logo_uam.eps}}
-  }
-  \caption{Ejemplo pie de figura 2}
-  \label{fig:norm_Daugman}
-\end{figure}
+\subsection{Plan de Trabajo}
+\subsubsection{Sprint 1 (18/9/2018 - 3/10/2018)}
+El primer sprint ha estado centrado tanto en definir con más exactitud la dirección del proyecto como en un primer acercamiento a las principales herramientas con las que va a desarrollarse. 
+
+Tras unos primeros pasos con Galaxy \cite{1} y Docker \cite{2}, se ha tomado como referencia el trabajo Bioinfworkflow de Sergio Chico \cite{3} como base para la imagen Docker del proyecto. Dado que el proyecto de Github daba algunos problemas en la instalación, se ha desarrollado un script propio que produce los mismos resultados.
+
+Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigación acerca del formato de los workflows de Galaxy (.ga) ya que en un futuro será necesario generar este tipo de ficheros para introducirlos en Galaxy. También resulta relevante la investigación acerca de las posibilidades que ofrece la API de Galaxy \cite{3} y su utilidad en Bioblend \cite{4}, que nos facilitan la opción de utilizar Galaxy sin necesidad de hacerlo a través de su interfaz.
 
 \newpage \thispagestyle{empty} % Página vacía 
