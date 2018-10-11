@@ -1,21 +1,17 @@
 \begin{thebibliography}{1}
 
-\bibitem{2}
-Docker - {Build}, {Ship}, and {Run} {Any} {App}, {Anywhere}.
-\newblock \url{https://www.docker.com/}.
+\bibitem{article:Ejemplo}
+Autor Apellidos.
+\newblock Titulo del art√≠culo.
+\newblock {\em Revista de publicaci'on}, pages 65--73, 2008.
 
 \bibitem{1}
 Galaxy.
 \newblock \url{https://usegalaxy.org/}.
 
-\bibitem{4}
-Galaxy {API}.
-\newblock \url{https://galaxyproject.org/develop/api/}.
-
-\bibitem{article:Ejemplo}
-Autor Apellidos.
-\newblock Titulo del artÌculo.
-\newblock {\em Revista de publicaciÛn}, pages 65--73, 2008.
+\bibitem{2}
+Docker - {Build}, {Ship}, and {Run} {Any} {App}, {Anywhere}.
+\newblock \url{https://www.docker.com/}.
 
 \bibitem{3}
 Sergio Chico.
@@ -24,5 +20,16 @@ Sergio Chico.
 \newblock \url{https://github.com/Serux/docker-galaxy-BioInfWorkflow}, June
   2018.
 \newblock original-date: 2018-05-17T01:10:05Z.
+
+\bibitem{4}
+Galaxy {API}.
+\newblock \url{https://galaxyproject.org/develop/api/}.
+
+\bibitem{6}
+Bj√∂rn Gr√ºning.
+\newblock :whale::bar\_chart::books: {Docker} {Images} tracking the stable
+  {Galaxy} releases.: bgruening/docker-galaxy-stable.
+\newblock https://github.com/bgruening/docker-galaxy-stable, October 2018.
+\newblock original-date: 2014-08-12T13:26:14Z.
 
 \end{thebibliography}

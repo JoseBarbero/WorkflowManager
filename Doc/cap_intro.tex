@@ -28,4 +28,8 @@ Tras unos primeros pasos con Galaxy \cite{1} y Docker \cite{2}, se ha tomado com
 
 Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigación acerca del formato de los workflows de Galaxy (.ga) ya que en un futuro será necesario generar este tipo de ficheros para introducirlos en Galaxy. También resulta relevante la investigación acerca de las posibilidades que ofrece la API de Galaxy \cite{3} y su utilidad en Bioblend \cite{4}, que nos facilitan la opción de utilizar Galaxy sin necesidad de hacerlo a través de su interfaz.
 
+\subsubsection{Sprint 2 (4/10/2018 - 17/10/2018)}
+La primera semana de este sprint ha estado dirigida a lograr una imagen Docker de Galaxy que contenga un set de herramientas básicas para formar un primer workflow. Se han valorado varias opciones de instalación en las que se han utilizado tanto la imagen básica de Galaxy \cite{6} como la imagen de Bioinfworkflow \cite{3}. Finalmente se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
+Para realizar esta tarea se ha creado un nuevo fichero Dockerfile así como el listado de herramientas necesarias para su instalación.
+
 \newpage \thispagestyle{empty} % Página vacía 
