@@ -1,5 +1,3 @@
-# This is just a sample file. For a fully documented version of this file, see
-# https://github.com/galaxyproject/ansible-galaxy-tools/blob/master/files/tool_list.yaml.sample
 tools:  
 - name: 'prinseq'
   owner: 'iuc'
@@ -17,6 +15,6 @@ tools:
   owner: 'iuc'
   tool_panel_section_label: 'Screening'
 
-
-  
-  
+- name: 'barrnap'
+  owner: 'iuc'
+  tool_panel_section_label: 'Annotation'
