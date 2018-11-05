@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.4)  16 OCT 2018 13:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.4)  5 NOV 2018 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,8 +673,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
  <./images/logo_eps-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 39.
-LaTeX Info: Redefining \% on input line 39.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
  [2]) (./cap_estadodelarte.tex
 Cap\'{\i }tulo 2.
 
@@ -753,10 +753,10 @@ LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 8238 strings out of 492649
- 106237 string characters out of 6129622
- 235336 words of memory out of 5000000
- 11848 multiletter control sequences out of 15000+600000
+ 8235 strings out of 492649
+ 106210 string characters out of 6129622
+ 235321 words of memory out of 5000000
+ 11845 multiletter control sequences out of 15000+600000
  28858 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,47p,3224b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -781,7 +781,7 @@ pe1/public/cm-super/sfti1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 1/public/cm-super/sftt1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
 public/cm-super/sfxc1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/bookman/ubkd8a.pfb>
-Output written on PLANTILLA_TFM.pdf (35 pages, 485148 bytes).
+Output written on PLANTILLA_TFM.pdf (35 pages, 485597 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  143 compressed objects within 2 object streams

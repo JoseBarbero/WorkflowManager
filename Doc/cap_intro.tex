@@ -32,8 +32,11 @@ Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en
 La primera semana de este sprint ha estado dirigida a lograr una imagen Docker de Galaxy que contenga un set de herramientas básicas para formar un primer workflow. Se han valorado varias opciones de instalación en las que se han utilizado tanto la imagen básica de Galaxy \cite{6} como la imagen de Bioinfworkflow \cite{3}. Finalmente se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
 Para realizar esta tarea se ha creado un nuevo fichero Dockerfile así como el listado de herramientas necesarias para su instalación.
 
-Durante la segunda semana se ha realizado una comparativa entre las diferentes librerías que permiten desarrollar interfaces visuales en Python, priorizando aquellas que permitiesen un soporte multiplataforma. Finalmente se ha optado por utilizar QtPy5 \cite{7} , dada su sencillez y su soporte multiplataforma.
+\subsubsection{Sprint 3 (18/10/2018 - 31/10/2018)}
+El sprint ha estado centrado en la correcta ejecución del workflow con las herramientas iniciales desde Galaxy. Durante el proceso de configuración han surgido varias complicaciones que han impedido terminar el workflow completo en este sprint. 
+En un principio han surgido problemas con el filtrado de calidad utilizando Prinseq. Este problema no ha llegado a ser resuelto en este sprint a falta de tratar el tema con el grupo de Tecnofood.
+A continuación se encontraron ciertos problemas con el formato de salida de la herramienta Prokka. A pesar de que la salida está marcada como formato gff3, un parámetro interno lo etiquetaba como gff. Esto impedía que la salida de Prokka fuese introducida como input en las herramientas siguientes.
 
-En el tiempo restante de la segunda semana se han realizado diferentes pruebas con las herramientas de galaxy con las que se formará el próximo workflow.
+Dados estos errores, se decidió trabajar en paralelo con la API de Galaxy desde Python para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde Python.
 
 \newpage \thispagestyle{empty} % Página vacía 
