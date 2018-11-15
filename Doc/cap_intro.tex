@@ -39,4 +39,13 @@ A continuación se encontraron ciertos problemas con el formato de salida de la h
 
 Dados estos errores, se decidió trabajar en paralelo con la API de Galaxy desde Python para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde Python.
 
+\subsubsection{Sprint 4 (1/11/2018 - 14/11/2018)}
+La prioridad en este punto se ha centrado en completar el workflow desde Galaxy. Han surgido varios problemas en esta tarea. La primera es un bug en Mac por el cual los archivos eliminados dentro de Docker no se eliminan del todo y quedan fijados en un fichero residual. Esto implica que cada cierto tiempo hay que eliminar la imagen completa de Docker para poder liberar espacio, dado el gran tamaño de los archivos con los que se trabaja. Debido a ello, la tarea de completar el workflow se ha visto retrasada. Además, la ejecución de la herramienta Roary a través de Galaxy ejecuta sin errores pero no devuelve ningún resultado, lo que ha impedido continuar con la parte final del workflow. 
+
+Además de la tarea ya comentada, en este sprint se ha trabajado en el acceso al contenedor Docker desde otro ordenador en una red local. Con el objetivo de desplegar el servicio en un servidor.
+
+También se ha tomado contacto con la interfaz gráfica, realizando unas pruebas en las que simplemente se muestra alguna información extraída de la API de Galaxy en etiquetas creadas con PyQt.
+
+
+
 \newpage \thispagestyle{empty} % Página vacía 

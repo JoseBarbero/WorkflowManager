@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.4)  5 NOV 2018 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.4)  15 NOV 2018 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,8 +616,8 @@ LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
  [7]
-LaTeX Info: Redefining \. on input line 71.
-LaTeX Info: Redefining \% on input line 71.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
  [8])
 \tf@toc=\write6
 \openout6 = `PLANTILLA_TFM.toc'.
@@ -673,43 +673,46 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
  <./images/logo_eps-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
- [2]) (./cap_estadodelarte.tex
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+ [2]
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
+ [3]) (./cap_estadodelarte.tex [4
+
+]
 Cap\'{\i }tulo 2.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3
-
-]
+ [5]
 LaTeX Info: Redefining \. on input line 66.
 LaTeX Info: Redefining \% on input line 66.
 
-[4]
+[6]
 LaTeX Info: Redefining \. on input line 77.
 LaTeX Info: Redefining \% on input line 77.
- [5]) (./cap_sistemadesarrollado.tex [6
+ [7]) (./cap_sistemadesarrollado.tex [8
 
 ]
 Cap\'{\i }tulo 3.
-) (./cap_experimentos.tex [7]
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [8
-
-]
-Cap\'{\i }tulo 4.
-) (./cap_conclusiones.tex [9]
+) (./cap_experimentos.tex [9]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [10
 
 ]
-Cap\'{\i }tulo 5.
-[11]) (./glosario.tex [12
+Cap\'{\i }tulo 4.
+) (./cap_conclusiones.tex [11]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [12
 
-] [13]) (./PLANTILLA_TFM.bbl [14
+]
+Cap\'{\i }tulo 5.
+[13]) (./glosario.tex [14
+
+] [15]) (./PLANTILLA_TFM.bbl [16
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
@@ -735,18 +738,18 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
 )
-(./anexo_manualuso.tex [15]
+(./anexo_manualuso.tex [17]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [16
+ [18
 
 ]
 Ap\'{e}ndice A.
-[17]) (./anexo_manualprogramador.tex [18
+[19]) (./anexo_manualprogramador.tex [20
 
 ]
 Ap\'{e}ndice B.
-[19]) (./PLANTILLA_TFM.aux
+[21]) (./PLANTILLA_TFM.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 LaTeX Info: Redefining \. on input line 7.
@@ -755,7 +758,7 @@ LaTeX Info: Redefining \% on input line 7.
 Here is how much of TeX's memory you used:
  8235 strings out of 492649
  106210 string characters out of 6129622
- 235321 words of memory out of 5000000
+ 235324 words of memory out of 5000000
  11845 multiletter control sequences out of 15000+600000
  28858 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -781,10 +784,10 @@ pe1/public/cm-super/sfti1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 1/public/cm-super/sftt1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
 public/cm-super/sfxc1095.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/bookman/ubkd8a.pfb>
-Output written on PLANTILLA_TFM.pdf (35 pages, 485597 bytes).
+Output written on PLANTILLA_TFM.pdf (37 pages, 487631 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
+ 218 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
