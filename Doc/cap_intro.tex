@@ -46,6 +46,14 @@ Además de la tarea ya comentada, en este sprint se ha trabajado en el acceso al 
 
 También se ha tomado contacto con la interfaz gráfica, realizando unas pruebas en las que simplemente se muestra alguna información extraída de la API de Galaxy en etiquetas creadas con PyQt.
 
+\subsubsection{Sprint 5 (15/11/2018 - 28/11/2018)}
+Al igual que en los sprints anteriores, gran parte de la carga de trabajo se ha centrado en resolver problemas en la ejecución del workflow a través de Galaxy. Se han realizado numerosas ejecuciones para comprobar si las salidas de cada herramienta eran las correctas. Esto ha servido para concluir que, al parecer, un fallo en la herramienta Roary incluida en Galaxy, impide que los ficheros retornados tengan contenido. Esto se ha comprobado a través de la ejecución de Roary standalone con los mismos datos de entrada y los mismos parámetros, obteniendo de esta manera los ficheros correctos.
+
+Para ahorrar en tiempos de ejecución se han utilizado los ficheros fasta ya generados previamente, no los generados con la herramienta Spades de nuestro propio workflow. En el próximo sprint se tratará de integrar la parte previa a los pasos que ya son correctos.
+
+También se ha añadido un fichero .gitignore para evitar la existencia de ficheros irrelevantes en el repositorio.
+
+Parte del trabajo de este sprint se ha destinado a la redacción de la propuesta de proyecto y de la introducción a la documentación del mismo.
 
 
 \newpage \thispagestyle{empty} % Página vacía 
