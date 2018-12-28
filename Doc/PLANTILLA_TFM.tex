@@ -2,9 +2,9 @@
 \documentclass[a4paper,11pt,twoside,openright,titlepage]{book}
 \usepackage[a4paper,left=1in,right=1in,top=0.6in]{geometry}
 
-\usepackage[T1]{fontenc}    %Ineterprete de t�ldes
-\usepackage[latin1]{inputenc}
-%\usepackage[Latin1]{inputenc}
+\usepackage[T1]{fontenc}    %Intérprete de tildes
+\usepackage[utf8]{inputenc}
+
 \usepackage{amsmath,amssymb}    %Paquete de entornos matematicos
 
 \usepackage{natbib}
@@ -28,10 +28,10 @@
 \usepackage{fancybox}   %Para tablas con bordes redondeados
 
 
-%% Modificaci�n de la plantilla para adaptarla a los requisitos de PFC
+%% Modificación de la plantilla para adaptarla a los requisitos de PFC
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-%%% Cabeceras y pies de p�gina
+%%% Cabeceras y pies de página
 \fancyhead[CE,CO]{\emph{\titulo}}
 \fancyhead[LE,LO,RE,RO]{}
 \fancyfoot[LE,RO]{\thepage}
@@ -40,7 +40,7 @@
 \renewcommand{\footrulewidth}{.6pt}
 
 
-%Definiciones de funciones para los titulos
+%Definiciones de funciones para los títulos
 \newlength\salto
 \setlength{\salto}{3.5ex plus 1ex minus .2ex}
 
@@ -49,19 +49,19 @@
 
 \newcommand{\lsection}[1]
                 {\section{#1}
-                \vskip-.9\resalto   %%%% Aqu� reculo el posible salto por defecto de \section
+                \vskip-.9\resalto   %%%% Aquí reculo el posible salto por defecto de \section
                 \hrule
                 \vskip+.9\salto}  %%%% vuelvo ha realizar el salto (puedes poner otra vez el 90%)
 
 
-%Para im�genes de entornos est�ticos \captionFigure{Texto Caption}{Texto Label}
+%Para imágenes de entornos estáticos \captionFigure{Texto Caption}{Texto Label}
 \newcommand{\captionFigure}[2]{
     \refstepcounter{figure}
     \centerline{Figura \thefigure: #1 \label{#2}}
     \addcontentsline{lof}{section}{\thefigure.\ #1\label{#2}}
 }
 
-%Para im�genes de entornos est�ticos \NOcaptionFigure{Texto Caption}{Texto Label} "No escribe el caption"
+%Para imágenes de entornos estáticos \NOcaptionFigure{Texto Caption}{Texto Label} "No escribe el caption"
 \newcommand{\NOcaptionFigure}[2]{
     \refstepcounter{figure}
     \addcontentsline{lof}{figure}{\thefigure.\ #1\label{#2}}
@@ -83,11 +83,11 @@
 
 \begin{document}
 \setlength{\baselineskip}{18pt}  %% Espacio interlinea
-\setlength{\parskip}{6pt plus 1pt minus 1pt} %% Espacio interp�rrafo
+\setlength{\parskip}{6pt plus 1pt minus 1pt} %% Espacio interpárrafo
 
 \input{portada}
 
-\frontmatter %Define el cuerpo inicial del libro en numeraci�n con letras romanas
+\frontmatter %Define el cuerpo inicial del libro en numeración con letras romanas
 
 \input{primera_pag}
 
@@ -97,21 +97,21 @@
 
 \tableofcontents
 
-\newpage \thispagestyle{empty} % P�gina vac�a
+\newpage \thispagestyle{empty} % Página vacía
 
-\addcontentsline{toc}{chapter}{�ndice de Figuras}    %Para que aparezca en el �ndice
-\renewcommand{\listfigurename}{�ndice de Figuras} 
+\addcontentsline{toc}{chapter}{Índice de Figuras}    %Para que aparezca en el índice
+\renewcommand{\listfigurename}{Índice de Figuras} 
 \listoffigures
 
-\newpage \thispagestyle{empty} % P�gina vac�a
+\newpage \thispagestyle{empty} % Página vacía
 
-\addcontentsline{toc}{chapter}{�ndice de Tablas}    %Para que aparezca en el �ndice
-\renewcommand{\listtablename}{�ndice de Tablas} 
+\addcontentsline{toc}{chapter}{Índice de Tablas}    %Para que aparezca en el índice
+\renewcommand{\listtablename}{Índice de Tablas} 
 \listoftables
 
-\newpage \thispagestyle{empty} % P�gina vac�a
+\newpage \thispagestyle{empty} % Página vacía
 
-\mainmatter %Define el cuerpo principal del libro numeraci�n normal.
+\mainmatter %Define el cuerpo principal del libro numeración normal.
 
 % \input{preambulo}
 
@@ -130,7 +130,7 @@
 \bibliographystyle{unsrt}   %plain pero ordenado en orden de aparacicion en documento principal
 \bibliography{bibliografia}
 
-\appendix   %Indicamos que lo que viene a continuaci�n son ap�ndices
+\appendix   %Indicamos que lo que viene a continuación son apéndices
 
 %\frontmatter %Para poner los anexos en numeros romanos
 
@@ -140,6 +140,6 @@
 
 
 %Hoja final en blanco
-\newpage \thispagestyle{empty} % P�gina vac�a
+\newpage \thispagestyle{empty} % Página vacía
 
 \end{document}

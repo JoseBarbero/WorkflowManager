@@ -1,37 +1,37 @@
-\chapter{IntroducciÛn} 
+\chapter{Introducci√≥n} 
 \label{chap:intro}
 
 \vspace{-0.2cm}
 
-\section{MotivaciÛn del proyecto}
-%TODO AÒadir referencias
-Campylobacter jejuni es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento \cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor n˙mero de intoxicaciones alimentarias en los paÌses tanto desarrollados como en vÌas de desarrollo. Por ejemplo, en la EU en el aÒo 2016 se declararon del orden de 250.000 casos comprobados \cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminaciÛn m·s habitual es el consumo de carne de pollo poco cocinada \cite{GarciaSanchez2018}. El grupo de investigaciÛn Tecnofood lleva varios aÒos investigando sobre las fuentes de contaminaciÛn de este microorganismo a lo largo de la cadena alimentaria \cite{garciasanchez2017} \cite{GarciaSanchez2018} \cite{Melero2012}. En la actualidad se dispone de una colecciÛn de Campylobacter spp. de alrededor de 2000 cepas. Con el fin de obtener una informaciÛn m·s precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos se han secuenciado con un equipo MiSeq (Illumina) 45 de ellas.
+\section{Motivaci√≥n del proyecto}
+%TODO A√±adir referencias
+Campylobacter jejuni es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento \cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor n√∫mero de intoxicaciones alimentarias en los pa√≠ses tanto desarrollados como en v√≠as de desarrollo. Por ejemplo, en la EU en el a√±o 2016 se declararon del orden de 250.000 casos comprobados \cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminaci√≥n m√°s habitual es el consumo de carne de pollo poco cocinada \cite{GarciaSanchez2018}. El grupo de investigaci√≥n Tecnofood lleva varios a√±os investigando sobre las fuentes de contaminaci√≥n de este microorganismo a lo largo de la cadena alimentaria \cite{garciasanchez2017} \cite{GarciaSanchez2018} \cite{Melero2012}. En la actualidad se dispone de una colecci√≥n de Campylobacter spp. de alrededor de 2000 cepas. Con el fin de obtener una informaci√≥n m√°s precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos se han secuenciado con un equipo MiSeq (Illumina) 45 de ellas.
 
-El proyecto consiste en diseÒar un workflow que permita, a partir de los datos obtenidos en formato fastq proporcionados por el equipo, conseguir realizar las fases de trimming y evaluaciÛn de la calidad de las secuencias obtenidas, obtenciÛn de contigs, assembling y anotaciÛn, para poder tener la informaciÛn de la secuencia de genes del genoma completo  \cite{Clark2016} \cite{Llarena2017} \cite{Zhao2016} de las cepas de Campylobacter secuenciadas. En la actualidad existen varios programas desarrollados por varios grupos de investigaciÛn internacional que realizan las funciones demandadas. Se trata de buscar la soluciÛn m·s eficaz y f·cil de implementar y que dÈ los mejores resultados, por lo que habr· que comparar diferentes programas y estrategias. Adicionalmente, se requiere incorporar en este workflow o en an·lisis paralelos \cite{Skarp2015}, la posibilidad de detectar insertos de origen viral y/o pl·smidos en el genoma y herramientas que permitan la comparaciÛn r·pida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales. Esta herramienta se ha demandado por parte de un grupo sin conocimientos inform·ticos, por lo que se requiere desarrollar un entorno de f·cil uso por su parte.
+El proyecto consiste en dise√±ar un workflow que permita, a partir de los datos obtenidos en formato fastq proporcionados por el equipo, conseguir realizar las fases de trimming y evaluaci√≥n de la calidad de las secuencias obtenidas, obtenci√≥n de contigs, assembling y anotaci√≥n, para poder tener la informaci√≥n de la secuencia de genes del genoma completo  \cite{Clark2016} \cite{Llarena2017} \cite{Zhao2016} de las cepas de Campylobacter secuenciadas. En la actualidad existen varios programas desarrollados por varios grupos de investigaci√≥n internacional que realizan las funciones demandadas. Se trata de buscar la soluci√≥n m√°s eficaz y f√°cil de implementar y que d√© los mejores resultados, por lo que habr√° que comparar diferentes programas y estrategias. Adicionalmente, se requiere incorporar en este workflow o en an√°lisis paralelos \cite{Skarp2015}, la posibilidad de detectar insertos de origen viral y/o pl√°smidos en el genoma y herramientas que permitan la comparaci√≥n r√°pida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales. Esta herramienta se ha demandado por parte de un grupo sin conocimientos inform√°ticos, por lo que se requiere desarrollar un entorno de f√°cil uso por su parte.
 
-El proyecto plantea una colaboraciÛn entre los grupos ADMIRABLE y TECNOFOOD de la Universidad de Burgos. Especializados en inform·tica y ciencia y tecnologÌa de los alimentos respectivamente. Dada esta combinaciÛn de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinform·tica.
+El proyecto plantea una colaboraci√≥n entre los grupos ADMIRABLE y TECNOFOOD de la Universidad de Burgos. Especializados en inform√°tica y ciencia y tecnolog√≠a de los alimentos respectivamente. Dada esta combinaci√≥n de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinform√°tica.
 
 
 \section{Objetivos y enfoque}
-El objetivo principal del proyecto es el desarrollo del workflow que permita el an·lisis de las cepas de Campylobacter jejuni, para lo que se utilizar·n Galaxy y las herramientas disponibles en la "tool shed" (conjunto de herramientas que ofrece Galaxy para su instalaciÛn) para cada paso. Galaxy es una herramienta que permite an·lisis computacionales de datos biolÛgicos. 
-El segundo objetivo se centra en crear una herramienta gr·fica a travÈs de la cual facilitar el uso de este workflow, que se llevar· a cabo utilizando Python, Qt y la API de Galaxy. 
-Adem·s, para facilitar el despliegue y ejecuciÛn de la herramienta desarrollada, se va a crear un contenedor Docker. Por lo tanto, el siguiente objetivo parcial ser· desarrollar la imagen Docker que sirva de base.
-Finalmente, se desea tener alguna forma sencilla de tratar los datos de salida del workflow, por lo que dentro de la interfaz gr·fica se incluir·n herramientas con las que gestionar toda la informaciÛn resultante en forma de gr·ficos, tablas tipo hoja de c·lculo, formatos pdf, etc.
+El objetivo principal del proyecto es el desarrollo del workflow que permita el an√°lisis de las cepas de Campylobacter jejuni, para lo que se utilizar√°n Galaxy y las herramientas disponibles en la "tool shed" (conjunto de herramientas que ofrece Galaxy para su instalaci√≥n) para cada paso. Galaxy es una herramienta que permite an√°lisis computacionales de datos biol√≥gicos. 
+El segundo objetivo se centra en crear una herramienta gr√°fica a trav√©s de la cual facilitar el uso de este workflow, que se llevar√° a cabo utilizando Python, Qt y la API de Galaxy. 
+Adem√°s, para facilitar el despliegue y ejecuci√≥n de la herramienta desarrollada, se va a crear un contenedor Docker. Por lo tanto, el siguiente objetivo parcial ser√° desarrollar la imagen Docker que sirva de base.
+Finalmente, se desea tener alguna forma sencilla de tratar los datos de salida del workflow, por lo que dentro de la interfaz gr√°fica se incluir√°n herramientas con las que gestionar toda la informaci√≥n resultante en forma de gr√°ficos, tablas tipo hoja de c√°lculo, formatos pdf, etc.
 
 Objetivos del proyecto:
 \begin{itemize}
-\item Desarrollar el workflow necesario para el an·lisis de las cepas en Galaxy
+\item Desarrollar el workflow necesario para el an√°lisis de las cepas en Galaxy
 \item Crear un sistema Docker sobre el que desplegar el proyecto
-\item Desarrollar una interfaz gr·fica para simplificar la utilizaciÛn de la aplicaciÛn
-\item AÒadir un sistema de gestiÛn sencilla de los datos de salida.
+\item Desarrollar una interfaz gr√°fica para simplificar la utilizaci√≥n de la aplicaci√≥n
+\item A√±adir un sistema de gesti√≥n sencilla de los datos de salida.
 \end{itemize}
 
 
-\section{MetodologÌa y plan de trabajo}
-\subsection{MetodologÌa}
-La metodologÌa utilizada en el desarrollo del proyecto, dada su cercanÌa en su estructura a un proyecto de software tradicional, ser· de tipo ·gil. Se basar· en el tipo de metodologÌa scrum, con reuniones en cada sprint.
-La carga de trabajo, como aproximaciÛn a falta de conocer ciertos requisitos que puedan surgir durante el desarrollo, se dividir· en la estructura siguiente.
-%TODO Ampliar un poco m·s
+\section{Metodolog√≠a y plan de trabajo}
+\subsection{Metodolog√≠a}
+La metodolog√≠a utilizada en el desarrollo del proyecto, dada su cercan√≠a en su estructura a un proyecto de software tradicional, ser√° de tipo √°gil. Se basar√° en el tipo de metodolog√≠a scrum, con reuniones en cada sprint.
+La carga de trabajo, como aproximaci√≥n a falta de conocer ciertos requisitos que puedan surgir durante el desarrollo, se dividir√° en la estructura siguiente.
+%TODO Ampliar un poco m√°s
 
 \subsection{Plan de Trabajo}
 
@@ -44,11 +44,11 @@ T1.1 Adaptar la imagen previa orientada a Galaxy              & 50    \\ \hline
 T1.2 Permitir desplegar la imagen en un servidor              & 30    \\ \hline
                                                               &       \\ \hline
 T2. Desarrollo del workflow en Galaxy                         & 110   \\ \hline
-T2.1. SelecciÛn de las herramientas                           & 50    \\ \hline
-T2.2. ConfiguraciÛn paramÈtrica                               & 30    \\ \hline
-T2.3. Habilitar ejecuciÛn del workflow de manera program·tica & 30    \\ \hline
+T2.1. Selecci√≥n de las herramientas                           & 50    \\ \hline
+T2.2. Configuraci√≥n param√©trica                               & 30    \\ \hline
+T2.3. Habilitar ejecuci√≥n del workflow de manera program√°tica & 30    \\ \hline
                                                               &       \\ \hline
-T3. Desarrollo de la interfaz gr·fica                         & 60    \\ \hline
+T3. Desarrollo de la interfaz gr√°fica                         & 60    \\ \hline
                                                               &       \\ \hline
 T4. Desarrollo del sistema de tratamiento de datos de salida  & 50    \\ \hline
                                                               &       \\ \hline
@@ -60,49 +60,49 @@ TOTAL HORAS                                                   & 300   \\ \hline
 
 
 \subsubsection{Sprint 1 (18/9/2018 - 3/10/2018)}
-El primer sprint ha estado centrado tanto en definir con m·s exactitud la direcciÛn del proyecto como en un primer acercamiento a las principales herramientas con las que va a desarrollarse. 
+El primer sprint ha estado centrado tanto en definir con m√°s exactitud la direcci√≥n del proyecto como en un primer acercamiento a las principales herramientas con las que va a desarrollarse. 
 
-Tras unos primeros pasos con Galaxy \cite{1} y Docker \cite{2}, se ha tomado como referencia el trabajo Bioinfworkflow de Sergio Chico \cite{3} como base para la imagen Docker del proyecto. Dado que el proyecto de Github daba algunos problemas en la instalaciÛn, se ha desarrollado un script propio que produce los mismos resultados.
+Tras unos primeros pasos con Galaxy \cite{1} y Docker \cite{2}, se ha tomado como referencia el trabajo Bioinfworkflow de Sergio Chico \cite{3} como base para la imagen Docker del proyecto. Dado que el proyecto de Github daba algunos problemas en la instalaci√≥n, se ha desarrollado un script propio que produce los mismos resultados.
 
-Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigaciÛn acerca del formato de los workflows de Galaxy (.ga) ya que en un futuro ser· necesario generar este tipo de ficheros para introducirlos en Galaxy. TambiÈn resulta relevante la investigaciÛn acerca de las posibilidades que ofrece la API de Galaxy \cite{3} y su utilidad en Bioblend \cite{4}, que nos facilitan la opciÛn de utilizar Galaxy sin necesidad de hacerlo a travÈs de su interfaz.
+Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigaci√≥n acerca del formato de los workflows de Galaxy (.ga) ya que en un futuro ser√° necesario generar este tipo de ficheros para introducirlos en Galaxy. Tambi√©n resulta relevante la investigaci√≥n acerca de las posibilidades que ofrece la API de Galaxy \cite{3} y su utilidad en Bioblend \cite{4}, que nos facilitan la opci√≥n de utilizar Galaxy sin necesidad de hacerlo a trav√©s de su interfaz.
 
 \subsubsection{Sprint 2 (4/10/2018 - 17/10/2018)}
-La primera semana de este sprint ha estado dirigida a lograr una imagen Docker de Galaxy que contenga un set de herramientas b·sicas para formar un primer workflow. Se han valorado varias opciones de instalaciÛn en las que se han utilizado tanto la imagen b·sica de Galaxy \cite{6} como la imagen de Bioinfworkflow \cite{3}. Finalmente se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
-Para realizar esta tarea se ha creado un nuevo fichero Dockerfile asÌ como el listado de herramientas necesarias para su instalaciÛn.
+La primera semana de este sprint ha estado dirigida a lograr una imagen Docker de Galaxy que contenga un set de herramientas b√°sicas para formar un primer workflow. Se han valorado varias opciones de instalaci√≥n en las que se han utilizado tanto la imagen b√°sica de Galaxy \cite{6} como la imagen de Bioinfworkflow \cite{3}. Finalmente se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
+Para realizar esta tarea se ha creado un nuevo fichero Dockerfile as√≠ como el listado de herramientas necesarias para su instalaci√≥n.
 
 \subsubsection{Sprint 3 (18/10/2018 - 31/10/2018)}
-El sprint ha estado centrado en la correcta ejecuciÛn del workflow con las herramientas iniciales desde Galaxy. Durante el proceso de configuraciÛn han surgido varias complicaciones que han impedido terminar el workflow completo en este sprint. 
+El sprint ha estado centrado en la correcta ejecuci√≥n del workflow con las herramientas iniciales desde Galaxy. Durante el proceso de configuraci√≥n han surgido varias complicaciones que han impedido terminar el workflow completo en este sprint. 
 En un principio han surgido problemas con el filtrado de calidad utilizando Prinseq. Este problema no ha llegado a ser resuelto en este sprint a falta de tratar el tema con el grupo de Tecnofood.
-A continuaciÛn se encontraron ciertos problemas con el formato de salida de la herramienta Prokka. A pesar de que la salida est· marcada como formato gff3, un par·metro interno lo etiquetaba como gff. Esto impedÌa que la salida de Prokka fuese introducida como input en las herramientas siguientes.
+A continuaci√≥n se encontraron ciertos problemas con el formato de salida de la herramienta Prokka. A pesar de que la salida est√° marcada como formato gff3, un par√°metro interno lo etiquetaba como gff. Esto imped√≠a que la salida de Prokka fuese introducida como input en las herramientas siguientes.
 
-Dados estos errores, se decidiÛ trabajar en paralelo con la API de Galaxy desde Python para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde Python.
+Dados estos errores, se decidi√≥ trabajar en paralelo con la API de Galaxy desde Python para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde Python.
 
 \subsubsection{Sprint 4 (1/11/2018 - 14/11/2018)}
-La prioridad en este punto se ha centrado en completar el workflow desde Galaxy. Han surgido varios problemas en esta tarea. La primera es un bug en Mac por el cual los archivos eliminados dentro de Docker no se eliminan del todo y quedan fijados en un fichero residual. Esto implica que cada cierto tiempo hay que eliminar la imagen completa de Docker para poder liberar espacio, dado el gran tamaÒo de los archivos con los que se trabaja. Debido a ello, la tarea de completar el workflow se ha visto retrasada. Adem·s, la ejecuciÛn de la herramienta Roary a travÈs de Galaxy ejecuta sin errores pero no devuelve ning˙n resultado, lo que ha impedido continuar con la parte final del workflow. 
+La prioridad en este punto se ha centrado en completar el workflow desde Galaxy. Han surgido varios problemas en esta tarea. La primera es un bug en Mac por el cual los archivos eliminados dentro de Docker no se eliminan del todo y quedan fijados en un fichero residual. Esto implica que cada cierto tiempo hay que eliminar la imagen completa de Docker para poder liberar espacio, dado el gran tama√±o de los archivos con los que se trabaja. Debido a ello, la tarea de completar el workflow se ha visto retrasada. Adem√°s, la ejecuci√≥n de la herramienta Roary a trav√©s de Galaxy ejecuta sin errores pero no devuelve ning√∫n resultado, lo que ha impedido continuar con la parte final del workflow. 
 
-Adem·s de la tarea ya comentada, en este sprint se ha trabajado en el acceso al contenedor Docker desde otro ordenador en una red local. Con el objetivo de desplegar el servicio en un servidor.
+Adem√°s de la tarea ya comentada, en este sprint se ha trabajado en el acceso al contenedor Docker desde otro ordenador en una red local. Con el objetivo de desplegar el servicio en un servidor.
 
-TambiÈn se ha tomado contacto con la interfaz gr·fica, realizando unas pruebas en las que simplemente se muestra alguna informaciÛn extraÌda de la API de Galaxy en etiquetas creadas con PyQt.
+Tambi√©n se ha tomado contacto con la interfaz gr√°fica, realizando unas pruebas en las que simplemente se muestra alguna informaci√≥n extra√≠da de la API de Galaxy en etiquetas creadas con PyQt.
 
 \subsubsection{Sprint 5 (15/11/2018 - 28/11/2018)}
-Al igual que en los sprints anteriores, gran parte de la carga de trabajo se ha centrado en resolver problemas en la ejecuciÛn del workflow a travÈs de Galaxy. Se han realizado numerosas ejecuciones para comprobar si las salidas de cada herramienta eran las correctas. Esto ha servido para concluir que, al parecer, un fallo en la herramienta Roary incluida en Galaxy, impide que los ficheros retornados tengan contenido. Esto se ha comprobado a travÈs de la ejecuciÛn de Roary standalone con los mismos datos de entrada y los mismos par·metros, obteniendo de esta manera los ficheros correctos.
+Al igual que en los sprints anteriores, gran parte de la carga de trabajo se ha centrado en resolver problemas en la ejecuci√≥n del workflow a trav√©s de Galaxy. Se han realizado numerosas ejecuciones para comprobar si las salidas de cada herramienta eran las correctas. Esto ha servido para concluir que, al parecer, un fallo en la herramienta Roary incluida en Galaxy, impide que los ficheros retornados tengan contenido. Esto se ha comprobado a trav√©s de la ejecuci√≥n de Roary standalone con los mismos datos de entrada y los mismos par√°metros, obteniendo de esta manera los ficheros correctos.
 
-Para ahorrar en tiempos de ejecuciÛn se han utilizado los ficheros fasta ya generados previamente, no los generados con la herramienta Spades de nuestro propio workflow. En el prÛximo sprint se tratar· de integrar la parte previa a los pasos que ya son correctos.
+Para ahorrar en tiempos de ejecuci√≥n se han utilizado los ficheros fasta ya generados previamente, no los generados con la herramienta Spades de nuestro propio workflow. En el pr√≥ximo sprint se tratar√° de integrar la parte previa a los pasos que ya son correctos.
 
-TambiÈn se ha aÒadido un fichero .gitignore para evitar la existencia de ficheros irrelevantes en el repositorio.
+Tambi√©n se ha a√±adido un fichero .gitignore para evitar la existencia de ficheros irrelevantes en el repositorio.
 
-Parte del trabajo de este sprint se ha destinado a la redacciÛn de la propuesta de proyecto y de la introducciÛn a la documentaciÛn del mismo.
+Parte del trabajo de este sprint se ha destinado a la redacci√≥n de la propuesta de proyecto y de la introducci√≥n a la documentaci√≥n del mismo.
 
 \subsubsection{Sprint 6 (29/11/2018 - 12/12/2018)}
-El trabajo de este sprint se ha centrado en fragmentar el proceso del workflow lo m·ximo posible para detectar dÛnde se est·n produciendo los errores.
-Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con Spades, ya que los problemas surgÌan en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se esta dando en la ejecuciÛn de Spades con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes par·metros, se ha llegado a la conclusiÛn de que no era un fallo de configuraciÛn de la herramienta, sino de hardware. Al ceder a docker una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
-A continuaciÛn, se ha pasado a ejecutar de nuevo por colecciones hasta el paso de Spades, para comprobar si con este cambio ha sido suficiente para que la ejecuciÛn sea correcta con este formato. 
+El trabajo de este sprint se ha centrado en fragmentar el proceso del workflow lo m√°ximo posible para detectar d√≥nde se est√°n produciendo los errores.
+Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con Spades, ya que los problemas surg√≠an en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se esta dando en la ejecuci√≥n de Spades con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes par√°metros, se ha llegado a la conclusi√≥n de que no era un fallo de configuraci√≥n de la herramienta, sino de hardware. Al ceder a docker una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
+A continuaci√≥n, se ha pasado a ejecutar de nuevo por colecciones hasta el paso de Spades, para comprobar si con este cambio ha sido suficiente para que la ejecuci√≥n sea correcta con este formato. 
 
-TambiÈn se ha realizado una modificaciÛn del fichero .gitignore para mantener los archivos .pdf generados por LaTeX.
+Tambi√©n se ha realizado una modificaci√≥n del fichero .gitignore para mantener los archivos .pdf generados por LaTeX.
 
 \subsubsection{Sprint 7 (13/12/2018 - 26/12/2018)}
-La tarea principal de este sprint ha sido la creaciÛn de una herramienta Roary que poder integrar en Galaxy. Se valorÛ la opciÛn de crear una nueva imagen Galaxy instalando la herramienta desde la creaciÛn inicial de Docker, pero finalmente se ha optado por subir esta versiÛn de Roary al tool shed de Galaxy.
+La tarea principal de este sprint ha sido la creaci√≥n de una herramienta Roary que poder integrar en Galaxy. Se valor√≥ la opci√≥n de crear una nueva imagen Galaxy instalando la herramienta desde la creaci√≥n inicial de Docker, pero finalmente se ha optado por subir esta versi√≥n de Roary al tool shed de Galaxy.
 
-A continuaciÛn, se han realizado varias comprobaciones del funcionamiento de la integraciÛn de esta herramienta, con resultados positivos. Sin embargo, al ejecutar el workflow completo, parecen surgir de nuevo errores en la parte de Prokka, probablemente provocados por la ejecuciÛn de Spades.
+A continuaci√≥n, se han realizado varias comprobaciones del funcionamiento de la integraci√≥n de esta herramienta, con resultados positivos. Sin embargo, al ejecutar el workflow completo, parecen surgir de nuevo errores en la parte de Prokka, probablemente provocados por la ejecuci√≥n de Spades.
 
-\newpage \thispagestyle{empty} % P·gina vacÌa 
+\newpage \thispagestyle{empty} % P√°gina vac√≠a 
