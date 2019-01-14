@@ -4,23 +4,24 @@
 \vspace{-0.2cm}
 
 \section{Motivación del proyecto}
-\textit{Campylobacter jejuni} es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento \cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor número de intoxicaciones alimentarias en los países tanto desarrollados como en vías de desarrollo. Por ejemplo, en la EU en el año 2016 se declararon del orden de 250.000 casos comprobados \cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminación más habitual es el consumo de carne de pollo poco cocinada \cite{GarciaSanchez2018}. El grupo de investigación Tecnofood lleva varios años investigando sobre las fuentes de contaminación de este microorganismo a lo largo de la cadena alimentaria \cite{garciasanchez2017, GarciaSanchez2018, Melero2012}. En la actualidad se dispone de una colección de Campylobacter spp. de alrededor de 2000 cepas. Con el fin de obtener una información más precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos se han secuenciado con un equipo MiSeq (Illumina) 45 de ellas.
+%TODO reestructurar la parte de la interfaz gráfica (interfaz de ejecución simplificada + gestión de datos de salida)
+\textit{Campylobacter jejuni} es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento~\cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor número de intoxicaciones alimentarias en los países tanto desarrollados como en vías de desarrollo. Por ejemplo, en la EU en el año 2016 se declararon del orden de 250.000 casos comprobados~\cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminación más habitual es el consumo de carne de pollo poco cocinada~\cite{GarciaSanchez2018}. El grupo de investigación Tecnofood\footnote{\url{https://www.ubu.es/tecnologia-de-los-alimentos-tecnofood}} lleva varios años investigando sobre las fuentes de contaminación de este microorganismo a lo largo de la cadena alimentaria~\cite{garciasanchez2017, GarciaSanchez2018, Melero2012}. En la actualidad se dispone de una colección de Campylobacter spp. de alrededor de 2000 cepas. Con el fin de obtener una información más precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos se han secuenciado con un equipo MiSeq (Illumina) 45 de ellas.
 
-El proyecto consiste en diseñar un workflow que permita, a partir de los datos obtenidos en formato fastq proporcionados por el equipo, conseguir realizar las fases de trimming y evaluación de la calidad de las secuencias obtenidas, obtención de contigs, assembling y anotación, para poder tener la información de la secuencia de genes del genoma completo  \cite{Clark2016, Llarena2017, Zhao2016} de las cepas de \textit{Campylobacter jejuni} secuenciadas. En la actualidad, existen varios programas desarrollados por varios grupos de investigación internacional que realizan las funciones demandadas. Se trata de buscar la solución más eficaz y fácil de implementar y que dé los mejores resultados, por lo que habrá que comparar diferentes programas y estrategias. Adicionalmente, se requiere incorporar en este workflow, o en análisis paralelos \cite{Skarp2015}, la posibilidad de detectar insertos de origen viral y/o plásmidos en el genoma y herramientas que permitan la comparación rápida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales. Esta herramienta se ha demandado por parte de un grupo sin conocimientos informáticos, por lo que se requiere desarrollar un entorno de fácil uso por su parte.
+El proyecto consiste en diseñar un workflow que permita, a partir de los datos obtenidos en formato fastq proporcionados por el equipo, conseguir realizar las fases de trimming y evaluación de la calidad de las secuencias obtenidas, obtención de contigs, assembling y anotación, para poder tener la información de la secuencia de genes del genoma completo~\cite{Clark2016, Llarena2017, Zhao2016} de las cepas de \textit{Campylobacter jejuni} secuenciadas. En la actualidad, existen varios programas desarrollados por varios grupos de investigación internacional que realizan las funciones demandadas. Se trata de buscar la solución más eficaz y fácil de implementar y que dé los mejores resultados, por lo que habrá que comparar diferentes programas y estrategias. Adicionalmente, se requiere incorporar en este workflow, o en análisis paralelos~\cite{Skarp2015}, la posibilidad de detectar insertos de origen viral y/o plásmidos en el genoma y herramientas que permitan la comparación rápida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales. Esta herramienta se ha demandado por parte de un grupo sin conocimientos informáticos, por lo que se requiere desarrollar un entorno de fácil uso por su parte.
 
-El proyecto plantea una colaboración entre los grupos ADMIRABLE y TECNOFOOD de la Universidad de Burgos. Especializados en informática y ciencia y tecnología de los alimentos respectivamente. Dada esta combinación de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinformática.
+El proyecto plantea una colaboración entre los grupos ADMIRABLE \footnote{\url{https://www.ubu.es/advanced-data-mining-research-and-bioinformatics-learning-admirable}} y TECNOFOOD de la Universidad de Burgos. Especializados en informática y ciencia y tecnología de los alimentos respectivamente. Dada esta combinación de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinformática.
 
 
 \section{Objetivos y enfoque}
-El objetivo principal del proyecto es el desarrollo del workflow que permita el análisis de las cepas de \textit{Campylobacter jejuni}, para lo que se utilizarán Galaxy y las herramientas disponibles en la <<tool shed>> (conjunto de herramientas que ofrece Galaxy para su instalación) para cada paso. Galaxy es una herramienta que permite análisis computacionales de datos biológicos. 
-El segundo objetivo se centra en crear una herramienta gráfica a través de la cual se pueda facilitar el uso de este workflow, que se llevará a cabo utilizando Python, Qt y la API de Galaxy. 
-Además, para facilitar el despliegue y ejecución de la herramienta desarrollada, se va a crear un contenedor Docker. Por lo tanto, el siguiente objetivo parcial será desarrollar la imagen Docker que sirva de base.
+El objetivo principal del proyecto es el desarrollo del workflow que permita el análisis de las cepas de \textit{Campylobacter jejuni}, para lo que se utilizarán \textit{Galaxy}~\cite{afgan2018galaxy} y las herramientas disponibles en la <<tool shed>> (conjunto de herramientas que ofrece \textit{Galaxy} para su instalación) para cada paso. \textit{Galaxy} es una herramienta que permite análisis computacionales de datos biológicos. 
+El segundo objetivo se centra en crear una herramienta de utilización simplificada del workflow, en la que los pasos para su ejecución se configuren automáticamente, y que se llevará a cabo utilizando \textit{Python} y la API de \textit{Galaxy} a través de Bioblend~\cite{Sloggett2013}. 
+Además, para facilitar el despliegue y ejecución de la herramienta desarrollada, se va a crear un contenedor \textit{Docker}. Por lo tanto, el siguiente objetivo parcial será desarrollar la imagen \textit{Docker} que sirva de base.
 Finalmente, se desea tener alguna forma sencilla de tratar los datos de salida del workflow, por lo que dentro de la interfaz gráfica se incluirán herramientas con las que gestionar toda la información resultante en forma de gráficos, tablas tipo hoja de cálculo, formatos pdf, etc.
 
 Objetivos del proyecto:
 \begin{itemize}
-\item Desarrollar el workflow necesario para el análisis de las cepas en Galaxy
-\item Crear un sistema Docker sobre el que desplegar el proyecto
+\item Desarrollar el workflow necesario para el análisis de las cepas en \textit{Galaxy}
+\item Crear un sistema \textit{Docker} sobre el que desplegar el proyecto
 \item Desarrollar una interfaz gráfica para simplificar la utilización de la aplicación
 \item Añadir un sistema de gestión sencilla de los datos de salida.
 \end{itemize}
@@ -29,8 +30,7 @@ Objetivos del proyecto:
 \section{Metodología y plan de trabajo}
 \subsection{Metodología}
 La metodología utilizada en el desarrollo del proyecto, dada su cercanía en su estructura a un proyecto de software tradicional, será de tipo ágil, basada en reuniones en cada sprint.
-La carga de trabajo, como aproximación a falta de conocer ciertos requisitos que puedan surgir durante el desarrollo, se dividirá en la estructura siguiente.
-%TODO Ampliar un poco más
+La carga de trabajo, como aproximación a falta de conocer ciertos requisitos que puedan surgir durante el desarrollo, se dividirá en la estructura definida en la estimación en horas del plan de trabajo.
 
 \subsection{Plan de Trabajo}
 
@@ -41,39 +41,34 @@ La carga de trabajo, como aproximación a falta de conocer ciertos requisitos qu
 \begin{tabularx}{\textwidth}{bs}
 \arrayrulecolor{NavyBlue}\hline
 \multicolumn{2}{l}{%
-\textbf{\textcolor{NavyBlue}{Tarea 1 - Desarrollo de la imagen Docker }}}\\
-\quad Tarea 1.1 -  Adaptar la imagen previa orientada a Galaxy &
+\textbf{\textcolor{NavyBlue}{Tarea 1 - Desarrollo de la imagen \textit{Docker} }}}\\
+\quad Tarea 1.1 -  Adaptar la imagen previa orientada a \textit{Galaxy} &
 \begin{minipage}[t]{\linewidth}%
 50 horas
 \end{minipage}\\
 
 \quad Tarea 1.2 - Permitir desplegar la imagen en un servidor &
 \begin{minipage}[t]{\linewidth}%
-30 horas
+10 horas
 \end{minipage}\\
 
 \arrayrulecolor{NavyBlue}\hline
 \multicolumn{2}{l}{%
-\textbf{\textcolor{NavyBlue}{Tarea 2 - Desarrollo del workflow en Galaxy}}} \\
+\textbf{\textcolor{NavyBlue}{Tarea 2 - Desarrollo del workflow en \textit{Galaxy}}}} \\
 \quad Tarea 2.1 - Selección de las herramientas &
 \begin{minipage}[t]{\linewidth}%
-50 horas
-\end{minipage}\\
-
-\quad Tarea 2.2 - Configuración paramétrica  &
-\begin{minipage}[t]{\linewidth}%
 30 horas
 \end{minipage}\\
 
-\quad Tarea 2.3 - Habilitar ejecución del workflow de manera programática  &
+\quad Tarea 2.2 - Configuración completa del workflow  &
 \begin{minipage}[t]{\linewidth}%
-30 horas
+100 horas
 \end{minipage}\\
 
 
 \arrayrulecolor{NavyBlue}\hline
 \multicolumn{2}{l}{%
-\textbf{\textcolor{NavyBlue}{Tarea 3 - Desarrollo de la interfaz de uso}}}\\
+\textbf{\textcolor{NavyBlue}{Tarea 3 - Desarrollo del modo de uso simplificado}}}\\
 &
 \begin{minipage}[t]{\linewidth}%
 60 horas
@@ -91,38 +86,38 @@ La carga de trabajo, como aproximación a falta de conocer ciertos requisitos qu
 
 \end{tabularx}
 \end{center}
-
-\caption{Plan de Trabajo}
+\label{table:HorasPlanDeTrabajo}
+\caption{Estimación en horas del plan de trabajo}
 \end{table}
 
 
 \subsubsection{Sprint 1 (18/9/2018 - 3/10/2018)}
 El primer sprint ha estado centrado tanto en definir con más exactitud la dirección del proyecto como en un primer acercamiento a las principales herramientas con las que va a desarrollarse. 
 
-Tras unos primeros pasos con Galaxy \cite{1} y Docker \cite{2}, se ha tomado como referencia el trabajo Bioinfworkflow de Sergio Chico \cite{3} como base para la imagen Docker del proyecto. Dado que el proyecto de Github daba algunos problemas en la instalación, se ha desarrollado un script propio que produce los mismos resultados.
+Tras unos primeros pasos con \textit{Galaxy}~\cite{1} y \textit{Docker}~\cite{2}, se ha tomado como referencia el trabajo Bioinfworkflow de Sergio Chico~\cite{3} como base para la imagen \textit{Docker} del proyecto. Dado que el proyecto de Github daba algunos problemas en la instalación, se ha desarrollado un script propio que produce los mismos resultados.
 
-Una vez se ha tenido disponible la imagen de Docker, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigación acerca del formato de los workflows de Galaxy (.ga) ya que en un futuro será necesario generar este tipo de ficheros para introducirlos en Galaxy. También resulta relevante la investigación acerca de las posibilidades que ofrece la API de Galaxy \cite{3} y su utilidad en Bioblend \cite{4}, que nos facilitan la opción de utilizar Galaxy sin necesidad de hacerlo a través de su interfaz.
+Una vez se ha tenido disponible la imagen de \textit{Docker}, el sprint se ha centrado en algunos aspectos importantes para partes futuras del desarrollo. Entre ellos destaca la investigación acerca del formato de los workflows de \textit{Galaxy} (.ga) ya que en un futuro será necesario generar este tipo de ficheros para introducirlos en \textit{Galaxy}. También resulta relevante la investigación acerca de las posibilidades que ofrece la API de \textit{Galaxy}~\cite{3} y su utilidad en Bioblend~\cite{4}, que nos facilitan la opción de utilizar \textit{Galaxy} sin necesidad de hacerlo a través de su interfaz.
 
 \subsubsection{Sprint 2 (4/10/2018 - 17/10/2018)}
-La primera semana de este sprint ha estado dirigida a lograr una imagen Docker de Galaxy que contenga un set de herramientas básicas para formar un primer workflow. Se han valorado varias opciones de instalación en las que se han utilizado tanto la imagen básica de Galaxy \cite{6} como la imagen de Bioinfworkflow \cite{3}. Finalmente, se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
+La primera semana de este sprint ha estado dirigida a lograr una imagen \textit{Docker} de \textit{Galaxy} que contenga un set de herramientas básicas para formar un primer workflow. Se han valorado varias opciones de instalación en las que se han utilizado tanto la imagen básica de \textit{Galaxy}~\cite{6} como la imagen de Bioinfworkflow~\cite{3}. Finalmente, se ha optado por utilizar Bioinforworkflow ya que parte de las herramientas necesarias ya estaban incluidas. 
 Para realizar esta tarea se ha creado un nuevo fichero Dockerfile así como el listado de herramientas necesarias para su instalación.
 
 \subsubsection{Sprint 3 (18/10/2018 - 31/10/2018)}
-El sprint ha estado centrado en la correcta ejecución del workflow con las herramientas iniciales desde Galaxy. Durante el proceso de configuración, han surgido varias complicaciones que han impedido terminar el workflow completo en este sprint. 
+El sprint ha estado centrado en la correcta ejecución del workflow con las herramientas iniciales desde \textit{Galaxy}. Durante el proceso de configuración, han surgido varias complicaciones que han impedido terminar el workflow completo en este sprint. 
 En un principio, han surgido problemas con el filtrado de calidad utilizando Prinseq. Este problema no ha llegado a ser resuelto en este sprint a falta de tratar el tema con el grupo de Tecnofood.
 A continuación, se encontraron ciertos problemas con el formato de salida de la herramienta Prokka. A pesar de que la salida está marcada como formato gff3, un parámetro interno lo etiquetaba como gff. Esto impedía que la salida de Prokka pudiese ser utilizada como entrada en las herramientas siguientes.
 
-Dados estos errores, se decidió trabajar en paralelo con la API de Galaxy desde Python, para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente, se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde Python.
+Dados estos errores, se decidió trabajar en paralelo con la API de \textit{Galaxy} desde \textit{Python}, para intentar ejecutar tanto las herramientas como el workflow de una manera menos restringida. Finalmente, se ha llevado a cabo el desarrollo necesario para subir los ficheros a un historial y ejecutar cada una de las herramientas del workflow desde \textit{Python}.
 
 \subsubsection{Sprint 4 (1/11/2018 - 14/11/2018)}
-La prioridad en este punto se ha centrado en completar el workflow desde Galaxy. Han surgido varios problemas en esta tarea. La primera es un bug en Mac por el cual los archivos eliminados dentro de Docker no se eliminan del todo y quedan fijados en un fichero residual. Quizá esto pueda deberse a que OSX no soporta de manera nativa la virtualización a nivel de sistema operativo, sino que se basa en Hyperkit para crear una capa de virtualización. Esto implica que cada cierto tiempo hay que eliminar la imagen completa de Docker para poder liberar espacio, dado el gran tamaño de los archivos con los que se trabaja. Debido a ello, la tarea de completar el workflow se ha visto retrasada. Además, la ejecución de la herramienta Roary a través de Galaxy ejecuta sin errores pero no devuelve ningún resultado, lo que ha impedido continuar con la parte final del workflow. 
+La prioridad en este punto se ha centrado en completar el workflow desde \textit{Galaxy}. Han surgido varios problemas en esta tarea. La primera es un bug en Mac por el cual los archivos eliminados dentro de \textit{Docker} no se eliminan del todo y quedan fijados en un fichero residual. Quizá esto pueda deberse a que OSX no soporta de manera nativa la virtualización a nivel de sistema operativo, sino que se basa en Hyperkit para crear una capa de virtualización. Esto implica que cada cierto tiempo hay que eliminar la imagen completa de \textit{Docker} para poder liberar espacio, dado el gran tamaño de los archivos con los que se trabaja. Debido a ello, la tarea de completar el workflow se ha visto retrasada. Además, la ejecución de la herramienta Roary a través de \textit{Galaxy} ejecuta sin errores pero no devuelve ningún resultado, lo que ha impedido continuar con la parte final del workflow. 
 
-Además de la tarea ya comentada, en este sprint se ha trabajado en el acceso al contenedor Docker desde otro ordenador en una red local. Con el objetivo de desplegar el servicio en un servidor.
+Además de la tarea ya comentada, en este sprint se ha trabajado en el acceso al contenedor \textit{Docker} desde otro ordenador en una red local. Con el objetivo de desplegar el servicio en un servidor.
 
-También se ha tomado contacto con la interfaz gráfica, realizando unas pruebas en las que simplemente se muestra alguna información extraída de la API de Galaxy en etiquetas creadas con PyQt.
+También se ha estudiado la posibilidad de desarrollar una interfaz gráfica, realizando unas pruebas en las que simplemente se muestra alguna información extraída de la API de \textit{Galaxy} en etiquetas creadas con PyQt.
 
 \subsubsection{Sprint 5 (15/11/2018 - 28/11/2018)}
-Al igual que en los sprints anteriores, gran parte de la carga de trabajo se ha centrado en resolver problemas en la ejecución del workflow a través de Galaxy. Se han realizado numerosas ejecuciones para comprobar si las salidas de cada herramienta eran las correctas. Esto ha servido para concluir que, al parecer, un fallo en la herramienta Roary incluida en Galaxy, impide que los ficheros retornados tengan contenido. Esto se ha comprobado a través de la ejecución de Roary standalone con los mismos datos de entrada y los mismos parámetros, obteniendo de esta manera los ficheros correctos.
+Al igual que en los sprints anteriores, gran parte de la carga de trabajo se ha centrado en resolver problemas en la ejecución del workflow a través de \textit{Galaxy}. Se han realizado numerosas ejecuciones para comprobar si las salidas de cada herramienta eran las correctas. Esto ha servido para concluir que, al parecer, un fallo en la herramienta Roary incluida en \textit{Galaxy}, impide que los ficheros retornados tengan contenido. Esto se ha comprobado a través de la ejecución de Roary standalone con los mismos datos de entrada y los mismos parámetros, obteniendo de esta manera los ficheros correctos.
 
 Para ahorrar en tiempos de ejecución se han utilizado los ficheros fasta ya generados previamente, no los generados con la herramienta Spades de nuestro propio workflow. En el próximo sprint se tratará de integrar la parte previa a los pasos que ya son correctos.
 
@@ -132,13 +127,13 @@ Parte del trabajo de este sprint se ha destinado a la redacción de la propuesta
 
 \subsubsection{Sprint 6 (29/11/2018 - 12/12/2018)}
 El trabajo de este sprint se ha centrado en fragmentar el proceso del workflow lo máximo posible para detectar dónde se están produciendo los errores.
-Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con Spades, ya que los problemas surgían en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se esta dando en la ejecución de Spades con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes parámetros, se ha llegado a la conclusión de que no era un fallo de configuración de la herramienta, sino de hardware. Al ceder a docker una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
+Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con Spades, ya que los problemas surgían en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se esta dando en la ejecución de Spades con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes parámetros, se ha llegado a la conclusión de que no era un fallo de configuración de la herramienta, sino de hardware. Al ceder a \textit{Docker} una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
 A continuación, se ha pasado a ejecutar de nuevo por colecciones hasta el paso de Spades, para comprobar si con este cambio ha sido suficiente para que la ejecución sea correcta con este formato. 
 
 También se ha realizado una modificación del fichero .gitignore para mantener los archivos .pdf generados por \LaTeX.
 
 \subsubsection{Sprint 7 (13/12/2018 - 26/12/2018)}
-La tarea principal de este sprint ha sido la creación de una herramienta Roary que poder integrar en Galaxy. Se valoró la opción de crear una nueva imagen Galaxy instalando la herramienta desde la creación inicial de Docker, pero finalmente se ha optado por subir esta versión de Roary al \emph{tool shed} de Galaxy.
+La tarea principal de este sprint ha sido la creación de una herramienta Roary que poder integrar en \textit{Galaxy}. Se valoró la opción de crear una nueva imagen \textit{Galaxy} instalando la herramienta desde la creación inicial de \textit{Docker}, pero finalmente se ha optado por subir esta versión de Roary al \emph{tool shed} de Galaxy.
 
 A continuación, se han realizado varias comprobaciones del funcionamiento de la integración de esta herramienta, con resultados positivos. Sin embargo, al ejecutar el workflow completo, parecen surgir de nuevo errores en la parte de Prokka, provocados por la ejecución previa de Spades. 
 
@@ -147,7 +142,7 @@ También se ha añadido el apartado de la Introducción de la documentación.
 \subsubsection{Sprint 8 (27/12/2018 - 9/1/2019)}
 El trabajo en este sprint se ha enfocado a completar definitivamente la ejecución del workflow solucionando los errores existentes. La máquina virtual con la que se realizaban estas pruebas disponía de 4 GB de RAM, insuficiente para la ejecución con este conjunto de datos. Esto causaba algunos errores poco descriptivos al ejecutarlo. El equipo de pruebas se ha aumentado a 32 GB de RAM, cediendo 16 GB a la máquina virtual, solucionando así estos errores.
 
-A continuación, se ha desarrollado un script Python a partir del cual realizar todas las tareas necesarias para ejecutar el workflow, utiizando la API de Galaxy.
+A continuación, se ha desarrollado un script \textit{Python} a partir del cual realizar todas las tareas necesarias para ejecutar el workflow, utiizando la API de \textit{Galaxy}.
 
 Se ha invertido el poco tiempo restante del sprint en el desarrollo de la documentación, definiendo la estructura de los apartados de <<estado del arte>> y <<sistema, diseño y desarrollo>>.
 \newpage \thispagestyle{empty} % Página vacía 
