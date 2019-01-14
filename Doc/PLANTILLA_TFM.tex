@@ -27,6 +27,14 @@
 %\usepackage{eurosym}   %Para imprimir el simbolo de \euro euro
 \usepackage{fancybox}   %Para tablas con bordes redondeados
 
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.2\hsize}X}
+\usepackage{enumitem}
+
+\setlist{nolistsep}
+\definecolor{NavyBlue}{HTML}{1e90ff}
 
 %% Modificación de la plantilla para adaptarla a los requisitos de PFC
 \usepackage{fancyhdr}
@@ -69,17 +77,17 @@
 
 
 %% Datos del PFC
-\newcommand{\titulo}{T\'itulo del TFM}
-\newcommand{\autor}{Autor: Nombre Apellido1 Apellido2}
-\newcommand{\director}{Nombre Apellido1 Apellido2}
+\newcommand{\titulo}{Desarrollo de un workflow para el análisis genético de \textit{Campylobacter jejuni}}
+\newcommand{\autor}{Autor: José Antonio Barbero Aparicio}
+\newcommand{\director}{Directores: José Francisco Díez Pastor y Beatriz Melero Gil}
 \newcommand{\tutor}{Tutor: Nombre Apellido1 Apellido2}
-\newcommand{\ponente}{Ponente: Nombre Apellido1 Apellido2}
+\newcommand{\ponente}{Ponente: Alberto Suárez González}
 \newcommand{\vocal}{Nombre Apellido1 Apellido2}
 \newcommand{\vocalsup}{Nombre Apellido1 Apellido2}
 \newcommand{\presidente}{Nombre Apellido1 Apellido2}
 \newcommand{\presidentesup}{Nombre Apellido1 Apellido2}
-\newcommand{\fecha}{MES 20xx}
-\newcommand{\carrera}{M\'aster en ...}
+\newcommand{\fecha}{Febrero 2019}
+\newcommand{\carrera}{Máster en Bioinformática y Biología Computacional}
 
 \begin{document}
 \setlength{\baselineskip}{18pt}  %% Espacio interlinea
