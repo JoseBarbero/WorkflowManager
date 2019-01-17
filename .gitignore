@@ -237,5 +237,8 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 
+# secret credentials
+Credentials.py
+
 # generated if using elsarticle.cls
 *.spl
