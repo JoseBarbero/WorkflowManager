@@ -5,22 +5,10 @@ import time
 from bioblend.galaxy import GalaxyInstance
 
 # Connect to galaxy server
-# TODO que las credenciales las meta el usuario
-# ┌─────┐
-# │ CGO │
-# └─────┘
-#   import getpass
-#   from myCredentials import * # to initialize dni and pwd externally
-#                               # in myCrentials.py only the initialization of
-#                               # the variables password and email
-#   # in case there are not credentials defined in myCredentials
-#   email = globals().get('email', None) or input("Email? ")
-#   password = globals().get('password', None) or getpass.getpass("Password? ")
-# Other common pattern is to define the value as environment variables
-#    and use os.environ['PASSWORD'] and os.environ['EMAIL']
-#    more on this at: https://www.reddit.com/r/learnpython/comments/264ffw/what_is_the_pythonic_way_of_storing_credentials/
+email = globals().get('email', None) or input("Email? ")
+password = globals().get('password', None) or getpass.getpass("Password? ")
 
-gi = GalaxyInstance('http://localhost:8080/', email='admin@galaxy.org', password='admin')
+gi = GalaxyInstance('http://localhost:8080/', email=email, password=password)
 
 # Import the workflow
 wf_name = "test"
