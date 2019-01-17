@@ -11,7 +11,7 @@ password = globals().get('password', None) or getpass.getpass("Password? ")
 gi = GalaxyInstance('http://localhost:8080/', email=email, password=password)
 
 # Import the workflow
-wf_name = "test"
+wf_name = "CJ_Worfklow"
 if wf_name not in [wf["name"] for wf in gi.workflows.get_workflows()]:
     gi.workflows.import_workflow_from_local_path("./Workflows/"+wf_name+".ga", True)
 
@@ -57,7 +57,7 @@ forward_collection = gi.histories.create_dataset_collection(hist_id, forward_des
 reverse_collection = gi.histories.create_dataset_collection(hist_id, reverse_description)
 
 # Get workflow id
-wf_id = [wf["id"] for wf in gi.workflows.get_workflows() if wf['name'] == "test"][0]
+wf_id = [wf["id"] for wf in gi.workflows.get_workflows() if wf['name'] == "CJ_Worfklow"][0]
 
 # Set workflow inputs
 wf_inputs = dict()
