@@ -21,6 +21,9 @@ ADD my_tool_list.yml $GALAXY_ROOT/my_tool_list.yml
 # Install deepTools
 RUN install-tools $GALAXY_ROOT/my_tool_list.yml
 
+# Install Python dependencies
+RUN pip install bioblend
+
 # Mark folders as imported from the host.
 VOLUME ["/export/", "/data/", "/var/lib/docker"]
 
