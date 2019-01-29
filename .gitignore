@@ -239,6 +239,8 @@ TSWLatexianTemp*
 
 # secret credentials
 Credentials.py
+credentials.py
+
 
 # generated if using elsarticle.cls
 *.spl
