@@ -2,11 +2,15 @@
 import os
 import datetime
 import time
+import sys
+import getpass
+
 from bioblend.galaxy import GalaxyInstance
+from credentials import *
 
 # Connect to galaxy server
-email = globals().get('email', None) or input("Email? ")
-password = globals().get('password', None) or getpass.getpass("Password? ")
+email = login['email'] or input("Email? ")
+password = login['password'] or getpass.getpass("Password? ")
 
 gi = GalaxyInstance('http://localhost:8080/', email=email, password=password)
 
@@ -67,20 +71,46 @@ wf_inputs['1'] = {'src': 'hdca', 'id': reverse_collection["id"]}
 # Run Workflow
 gi.workflows.invoke_workflow(wf_id, wf_inputs, history_name=results_history_name)
 
-# Exportar ficheros de salida
-while any([gi.jobs.get_state(job["id"]) != "ok" for job in gi.jobs.get_jobs()]):
-    time.sleep(10)
-    print("Please, wait. The job is running...")
+# Export output files
 output_history_id = gi.histories.get_histories(name=results_history_name)[0]["id"]
+ini_time = time.time()
+while any([gi.jobs.get_state(job["id"]) != "ok" for job in gi.jobs.get_jobs()]):
+    time.sleep(60)
+    state = gi.histories.show_history(output_history_id, contents=False)["state_details"]
+    ok = state["ok"]
+    running = state["running"]
+    queued = state["queued"]
+    errors = state["error"]
+    paused = state["paused"]
+    sys.stdout.flush()
+    print("Please, wait. Workflow is running...")
+    time_running = time.time()-ini_time
+    print("Time running: "+str(datetime.timedelta(seconds=time_running)))
+    print("\t "+str(ok)+" jobs finished")
+    print("\t "+str(running)+" jobs running")
+    print("\t "+str(queued)+" jobs queued")
+    print("\t "+str(errors)+" jobs failed")
+    print("\t "+str(paused)+" jobs paused")
 
+# Create output directories
 output_dir = results_history_name
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
+output_filter = ("roary", "prokka", "abricate")
+
+for subdir in output_filter:
+    if not os.path.exists(output_dir+"/"+subdir):
+        os.makedirs(output_dir+"/"+subdir)
+
+# Download datasets
 for dataset in gi.histories.show_matching_datasets(output_history_id):
-    if dataset["name"] not in input_files_names:
-		file_name = dataset["name"]+"."+dataset["file_ext"]
-		file_name = file_name.replace(" ", "_")
-		file_name = file_name.replace(":", "_")
-		gi.histories.download_dataset(output_history_id, dataset["dataset_id"], output_dir+"/"+file_name, False)
+    if dataset["name"].lower().startswith(output_filter):
+        file_name = dataset["name"]+"."+dataset["file_ext"]
+        file_name = file_name.replace(" ", "_")
+        file_name = file_name.replace(":", "_")
+        file_name = file_name.replace(",", "")
+        file_name = file_name.replace("RoaryPrueba", "Roary")
+        file_name = file_name.lower()
+        gi.histories.download_dataset(output_history_id, dataset["dataset_id"], output_dir+"/"+file_name.split("_")[0]+"/"+file_name, False)
 print("DONE")

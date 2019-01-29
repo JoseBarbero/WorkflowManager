@@ -21,6 +21,11 @@ ADD my_tool_list.yml $GALAXY_ROOT/my_tool_list.yml
 # Install deepTools
 RUN install-tools $GALAXY_ROOT/my_tool_list.yml
 
+# Install workflow
+ADD workflows/* $GALAXY_HOME/workflows/
+ADD install_workflows_wrapper.sh $GALAXY_ROOT/install_workflows_wrapper.sh
+RUN $GALAXY_ROOT/install_workflows_wrapper.sh $GALAXY_HOME/workflows/CJ_Worfklow.ga
+
 # Install Python dependencies
 RUN pip install bioblend
 
@@ -34,3 +39,5 @@ EXPOSE :8800
 
 # Autostart script that is invoked during container start
 CMD ["/usr/bin/startup"]
+
+
