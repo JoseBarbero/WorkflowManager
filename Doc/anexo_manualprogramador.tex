@@ -11,9 +11,9 @@ El caso del procesador no es tan limitante como el anterior, sin embargo, defini
 \section{Requisitos software necesarios}
 El proyecto está enfocado a ser ejecutado en un sistema \textit{Ubuntu}, en concreto, se ha utilizado la versión 18.04.1. Sin embargo, desde la perspectiva de un desarrollador, con unos cambios menores puede llegar a adaptarse a cualquier sistema sin demasiado esfuerzo.
     \subsection{\textit{Docker}}
-    Docker es un sistema de código abierto basado en contenedores que permiten el despliegue de aplicaciones dentro de sí mismos. Los contenedores ofrecen la posibilidad de empaquetar todo el software necesario para ejecutar nuestra aplicación, ofreciendo un modo de virtualización mucho más aislado y ligero que el uso de máquinas virtuales. Además, se mantiene la seguridad de que nuestra aplicación será utilizable en cualquier sistema en el que se pueda realizar esta virtualización.
+    \textit{Docker} es un sistema de código abierto basado en contenedores que permiten el despliegue de aplicaciones dentro de sí mismos. Los contenedores ofrecen la posibilidad de empaquetar todo el software necesario para ejecutar nuestra aplicación, ofreciendo un modo de virtualización mucho más aislado y ligero que el uso de máquinas virtuales. Además, se mantiene la seguridad de que nuestra aplicación será utilizable en cualquier sistema en el que se pueda realizar esta virtualización.
     
-    Durante el desarrollo del proyecto se ha utilizado la versión 18.09.1 de \textit{Docker}, por lo que se recomienda la instalación de una versión igual o superior a esta. El proceso para instalar \textit{Docker} en \textit{Ubuntu} no es complejo y en la propia web encontramos una guía de instalación \footnote{https://docs.docker.com/install/linux/docker-ce/ubuntu/}.
+    Durante el desarrollo del proyecto se ha utilizado la versión 18.09.1 de \textit{Docker}, por lo que se recomienda la instalación de una versión igual o superior a esta. El proceso para instalar \textit{Docker} en \textit{Ubuntu} no es complejo y en la propia web encontramos una guía de instalación \footnote{\url{https://docs.docker.com/install/linux/docker-ce/ubuntu/}}.
 
 
     \subsection{Python}
@@ -25,13 +25,20 @@ El proyecto está enfocado a ser ejecutado en un sistema \textit{Ubuntu}, en con
             
             \item[\textit{Pandas} 0.24] permite la utilización de nuevas estructuras y métodos para el análisis de datos. Se utiliza en este caso para tareas simples, como gestionar ficheros de tipo \textit{tabular}, \textit{csv} y \textit{xls}.
             
-            \item[\textit{Numpy} 1.15.4] es uno de los paquetes más utilizados de Python, facilitando gran variedad de funciones matemáticas. En el caso de \textit{Numpy} es importante utilizar esta versión en concreto, ya que en este momento la versión actual (1.16.0) pressenta incompatibilidades con otra de las librerías instaladas, \textit{PyInstaller}.
+            \item[\textit{Numpy} 1.15.4] es uno de los paquetes más utilizados de \textit{Python}, facilitando gran variedad de funciones matemáticas. En el caso de \textit{Numpy} es importante utilizar esta versión en concreto, ya que en este momento la versión actual (1.16.0) presenta incompatibilidades con otra de las librerías instaladas, \textit{PyInstaller}.
             
             \item[\textit{PyInstaller} 3.4] es una utilidad que permite generar ejecutables a partir del código \textit{Python} para así evitar las instalaciones, tanto del propio \textit{Python}, como de sus dependencias.
         
         \end{description}
     
-        Las instalaciones de todas estas librerías pueden realizarse sin problema desde \textit{pip} con el comando \textit{<<pip install librería\_deseada>>}.
+        Las instalaciones de todas estas librerías pueden realizarse sin problema desde \textit{pip} con el comando
+        \begin{lstlisting}[language=bash]
+        $ pip install <<libreria_deseada>>.
+        \end{lstlisting} 
+        En caso de que se necesite instalar una versión concreta, como en \textit{Numpy}, se utilizará
+        \begin{lstlisting}[language=bash]
+        $ pip install numpy==1.15.4
+        \end{lstlisting} 
 
 \section{Estructura del proyecto}
 \begin{figure}
@@ -46,7 +53,7 @@ El proyecto está enfocado a ser ejecutado en un sistema \textit{Ubuntu}, en con
 Todos los componentes necesarios para construir la imagen \textit{Docker} de \textit{Galaxy} se encuentran en el directorio <<build>>. El fichero más relevante es <<Dockerfile>>, que contiene todas las directivas que indican cómo construir esta imagen. En concreto, realiza algunas variaciones sobre una imagen ya existente. Para realizar este montaje, será necesario el fichero <<mount.sh>>, que se encargará de utilizar las instrucciones de <<Dockerfile>> para construir y desplegar la imagen en un contenedor \textit{Docker}. Los dos ficheros <<install\_workflows\_wrapper.sh>> y <<my\_tool\_list.yml>> son utilidades para la instalación de workflows y herramientas de \textit{Galaxy} respectivamente. Las herramientas indicadas se instalarán desde el <<tool shed>> de \textit{Galaxy}, mientras que los workflows se encontrarán en el directorio <<workflows>>.
 
 \subsection{Directorio de desarrollo: \textit{<<dev>>}}
-Las utilidades desarrolladas en Python se almacenan en este directorio. Aquí encontramos dos ficheros principales, <<GalaxyWorkflow.py>> y <<OutputToXls.py>. El primero de ellos es el encargado de simplificar la utilización del workflow a los usuarios. Basándose en la API de \textit{Galaxy} a través del uso de la librería \textit{BioBlend}, se identifica en \textit{Galaxy} utilizando las credenciales indicadas en el fichero <<credentials.py>>. A continuación, genera nuevos historiales para almacenar los datos de entrada y los futuros datos de salida. Buscará dentro de los directorios <<Forward>> y <<Reverse>> los ficheros de las secuencias a analizar. Con ellos creará dos colecciones que servirán como entrada definitiva del workflow. Una vez ejecutado, el script se encargará de descargar los ficheros de salida de las tres últimas herramientas, que son los que en este caso se desean utilizar posteriormente.
+Las utilidades desarrolladas en \textit{Python} se almacenan en este directorio. Aquí encontramos dos ficheros principales, <<GalaxyWorkflow.py>> y <<OutputToXls.py>. El primero de ellos es el encargado de simplificar la utilización del workflow a los usuarios. Basándose en la API de \textit{Galaxy} a través del uso de la librería \textit{BioBlend}, se identifica en \textit{Galaxy} utilizando las credenciales indicadas en el fichero <<credentials.py>>. A continuación, genera nuevos historiales para almacenar los datos de entrada y los futuros datos de salida. Buscará dentro de los directorios <<Forward>> y <<Reverse>> los ficheros de las secuencias a analizar. Con ellos creará dos colecciones que servirán como entrada definitiva del workflow. Una vez ejecutado, el script se encargará de descargar los ficheros de salida de las tres últimas herramientas, que son los que en este caso se desean utilizar posteriormente.
 
 Por su parte, el script <<OutputToXls.py>> se encargará, a través del uso de \textit{Pandas}, de crear un solo fichero <<.xls>> a partir de las salidas generadas por las herramientas \textit{Roary} y \textit{ABRicate} para facilitar el tratamiento de los datos por parte del equipo que los va a utilizar, dado que están familiarizados con \textit{Excel}.
 
