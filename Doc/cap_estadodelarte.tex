@@ -5,12 +5,12 @@
 \subsection{Control de calidad}
 Las nuevas técnicas de secuenciación masiva proporcionan una gran ventaja en cuanto a la velocidad de lectura de las secuencias~\cite{ngs}. Sin embargo, hay que tener especial precaución en el análisis de la calidad de estas, ya que una mayor velocidad puede llegar a implicar errores en las lecturas en algunos casos. Especialmente, en aquellos en los que se va a realizar un análisis en el que se pueden transmitir estos errores a través de cada una de las herramientas que componen el proceso, pudiendo llegar a provocar conclusiones erróneas al final del análisis.
 
-Los artefactos, las lecturas de baja calidad, las inserciones y deleciones y la contaminación con adaptadores y primers son varias de las causas que pueden llevar a análisis problemáticos~\cite{plosone}. No obstante, en la actualidad, existen numerosos métodos enfocados al tratamiento de estos problemas, normalmente agrupados en herramientas entre las que destacan algunas como \textit{FastQC}~\cite{fastqc} o \textit{Prinseq}~\cite{schmieder_prinseq}.
+Los artefactos\footnote{Secuencia atípica que normalmente no debería existir en cierto contexto.}, las lecturas de baja calidad, las inserciones y deleciones y la contaminación con adaptadores\footnote{Oligonucleótido sintentizado artificialmente que puede unirse a secuencias de ADN y ARN.} y \textit{primers}\footnote{Secuencia de ADN o ARN que sirve como punto de partida para la síntesis de ADN.} son varias de las causas que pueden llevar a análisis problemáticos~\cite{plosone}. No obstante, en la actualidad, existen numerosos métodos enfocados al tratamiento de estos problemas, normalmente agrupados en herramientas entre las que destacan algunas como \textit{FastQC}~\cite{fastqc} o \textit{Prinseq}~\cite{schmieder_prinseq}.
 
 \subsection{Ensamblado}
 Los sistemas de secuenciación actuales pierden calidad cuando aumenta el tamaño de las lecturas, por lo tanto, se generan gran cantidad de pequeñas lecturas que deberemos unir. El objetivo del proceso de ensamblado es recoger todos estos fragmentos menores que conformarían una secuencia mayor para alinearlos y empalmarlos con el objetivo de reconstruirla~\cite{assembly_wiki}. Dada la tendencia al aumento de la cantidad de datos a procesar por los ensambladores a raíz de las nuevas técnicas de secuenciación, estos se han visto empujados a emplear técnicas cada vez más eficientes para evitar crear un cuello de botella en esta fase del análisis. Los diferentes aspectos de cada secuenciación como el tamaño, si se trata de un organismo procariota o eucariota, de un transcriptoma, metagenoma, etc, influyen en la eficacia de unos u otros algoritmos. En nuestro caso, al tratarse de bacterias, cuyo genoma es pequeño, se ha decidido utilizar una herramienta destinada a esta característica, como es \textit{SPAdes}~\cite{Nurk2013}. 
 
-Hay que destacar que el problema del ensamblado es, computacionalmente, extremadamente costoso, por lo que la importancia de encontrar un algoritmo que resuelva el problema en un tiempo aceptable es enorme. En este caso, la tecnología en la que se basa tanto esta herramienta como otras muy potentes~\cite{Zerbino2008} son los grafos de De Bruijn~\cite{Compeau2011}. Se trata de un tipo de grafos utilizados para representar solapamientos entre secuencias. Es importante tener en cuenta que, en esta representación, los enlaces del grafo estarán formados por las subcadenas de tamaño \textit{k-mer} de cada fragmento, mientras que los nodos serán las uniones que utilicen las dos subcadenas para lograr empalmar el final de una con el inicio de la otra~\ref{fig:DeBruijn}. La base del algoritmo centrado en este tipo de grafos es encontrar su camino hamiltoniano (que recorra todos los nodos de un grafo una sola vez), siendo este camino la secuencia ensamblada completa.
+Hay que destacar que el problema del ensamblado es, computacionalmente, extremadamente costoso, por lo que la importancia de encontrar un algoritmo que resuelva el problema en un tiempo aceptable es enorme. En este caso, la tecnología en la que se basa tanto esta herramienta como otras muy potentes, como \textit{Velvet}~\cite{Zerbino2008} son los grafos de De Bruijn~\cite{Compeau2011}. Se trata de un tipo de grafos utilizados para representar solapamientos entre secuencias. Es importante tener en cuenta que, en esta representación, los enlaces del grafo estarán formados por las subcadenas de tamaño \textit{k}, denominadas \textit{k-mers} de cada fragmento, mientras que los nodos serán las uniones que utilicen las dos subcadenas para lograr empalmar el final de una con el inicio de la otra, como se aprecia en la figura~\ref{fig:DeBruijn}. La base del algoritmo centrado en este tipo de grafos es encontrar su camino hamiltoniano (que recorra todos los nodos de un grafo una sola vez), siendo este camino la secuencia ensamblada completa.
 
 \begin{figure}
     \begin{center}
@@ -23,9 +23,9 @@ Hay que destacar que el problema del ensamblado es, computacionalmente, extremad
 \subsection{Anotación}
 El proceso de anotación del genoma se basa en identificar y etiquetar todos los aspectos relevantes encontrados en una secuencia, incluyendo, principalmente, regiones codificantes; aunque también son interesantes otros elementos como ARN no codificante, péptidos señal, etc~\cite{RichardsonWatson2012}. 
 
-En algunos casos el proceso se basa en la ejecución de un pipeline automático de anotación seguido de un proceso de filtrado manual~\cite{Stothard2006}. El objetivo en este proyecto es la automatización del proceso en un tiempo de ejecución asequible sin dejar de lado la precisión. En experimentos realizados, \textit{Prokka} ha dado mejores resultados que alternativas como \textit{RAST} o \textit{xBase2} y ha demostrado ser eficiente incluso en ordenadores convencionales de usuario~\cite{Seemann2014}.
+En algunos casos el proceso se basa en la ejecución de un pipeline automático de anotación seguido de un proceso de filtrado manual~\cite{Stothard2006}. El objetivo en este proyecto es la automatización del proceso en un tiempo de ejecución asequible sin dejar de lado la precisión. En experimentos realizados, \textit{Prokka} ha dado mejores resultados que alternativas como \textit{RAST} o \textit{xBase2} y ha demostrado ser eficiente incluso en ordenadores de usuario con la potencia típica de un PC de sobremesa~\cite{Seemann2014}.
 
-\textit{Prokka} basa su anotación en una serie de herramientas  externas, cada una de ellas especializada en la identificación de una característica de la secuencia concreta~\ref{table:ProkkaTools}.
+\textit{Prokka}~\cite{Seemann2014} basa su anotación en una serie de herramientas  externas, cada una de ellas especializada en la identificación de una característica de la secuencia concreta, como se explica en la tabla~\ref{table:ProkkaTools}.
 
 \begin{table}[!htb]
 
@@ -41,12 +41,12 @@ En algunos casos el proceso se basa en la ejecución de un pipeline automático 
 
 \quad RNAmmer~\cite{Lagesen2007} &
 \begin{minipage}[t]{\linewidth}
-~~~~RNA Ribosómico (rRNA)
+~~~~ARN Ribosómico (rRNA)
 \end{minipage}\\
 
 \quad Aragorn~\cite{Laslett2004} &
 \begin{minipage}[t]{\linewidth}
-~~~~RNA de transferencia
+~~~~ARN de transferencia
 \end{minipage}\\
 
 \quad SignalP~\cite{Petersen2011} &
@@ -62,7 +62,7 @@ En algunos casos el proceso se basa en la ejecución de un pipeline automático 
 \end{tabularx}
 \end{center}
 \label{table:ProkkaTools}
-\caption{Herramientas externas de \textit{Prokka}~\cite{Seemann2014}}
+\caption{Herramientas externas de \textit{Prokka}}
 \end{table}
 
 \subsection{Análisis de resistencia a antibióticos}
