@@ -1,5 +1,13 @@
 \chapter{Conclusiones y trabajo futuro}
 \label{chap:conclusiones}
+Tomando como referencia los objetivos planteados en el capítulo \ref{chap:intro}, podemos concluir que las metas establecidas en este proyecto se han cumplido. El resultado del desarrollo ha sido una aplicación funcional que ha podido ser puesta a prueba con un caso real.
 
+El primero de los objetivos se centraba en permitir una forma de instalación y configuración limpia de cara al usuario. La adaptación de una la imagen \textit{Docker} de \textit{Galaxy} ya disponible ha presentado varios problemas. Uno de ellos provocaba que la ejecución superase las capacidades del procesador y este fallase. La resolución de este tipo de inconvenientes así como la introducción de algunas nuevas funcionalidades y configuraciones han terminado proporcionando una imagen estable con la que el usuario pueda trabajar sin inconvenientes.
+
+Uno de los objetivos más relevantes era la creación del propio workflow. La configuración de las herramientas no ha presentado problemas graves más allá de los problemas de ejecución a raíz de la configuración de \textit{Docker}. Tras numerosas pruebas de funcionamiento, el workflow fue mejorado incluyendo las utilidades planteadas en los objetivos. La creación de scripts encapsulando órdenes que los usuarios repetirán en numerosas ocasiones facilitará el manejo del workflow y acercará su uso a quien esté menos familiarizado con la programación de estas órdenes.
+
+El desarrollo de una herramienta desde cero implica que, una vez completada y funcional, se abren varias lineas de trabajo futuras a través de las cuales ampliar o mejorar el desarrollo. Una de las posibles líneas podría centrarse en pulir algunos aspectos del comportamiento interno del workflow en \textit{Galaxy}. Por ejemplo, varios de los nombres de los datos generados podrían ser más descriptivos utilizando el nombre de la cepa inicial. Respecto a las funcionalidades, también podría abrirse una línea en la que añadir nuevas utilidades relacionadas con los ficheros obtenidos. Se trata de una opción totalmente abierta con un gran número de posibilidades. También, debido a la facilidad que presenta \textit{Galaxy} para añadir nuevas herramientas, se podría ampliar la funcionalidad de esta manera sin provocar demasiadas consecuencias en el resto del funcionamiento.
+
+Por último, dado que el proyecto se enfoca a usuarios con poca formación en informática y programación, sería positivo agrupar todas las funcionalidades desarrolladas en una interfaz gráfica que facilitaría mucho su utilización.
 
 \newpage \thispagestyle{empty} % Página vacía 

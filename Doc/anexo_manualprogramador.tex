@@ -41,6 +41,9 @@ El proyecto está enfocado a ser ejecutado en un sistema \textit{Ubuntu}, en con
         \end{lstlisting} 
 
 \section{Estructura del proyecto}
+
+A continuación, se realizará un breve repaso de cada uno de los directorios que contienen los componentes necesarios para el desarrollo del proyecto. En la figura \ref{fig:ContenidoDelProyecto} se describe visualmente esta estructura.
+
 \begin{figure}
     \begin{center}
       \includegraphics[scale=0.4]{images/FolderStructure.png}
@@ -50,7 +53,7 @@ El proyecto está enfocado a ser ejecutado en un sistema \textit{Ubuntu}, en con
 \end{figure}
 
 \subsection{Directorio de ensamblado: \textit{<<build>>}}
-Todos los componentes necesarios para construir la imagen \textit{Docker} de \textit{Galaxy} se encuentran en el directorio <<build>>. El fichero más relevante es <<Dockerfile>>, que contiene todas las directivas que indican cómo construir esta imagen. En concreto, realiza algunas variaciones sobre una imagen ya existente. Para realizar este montaje, será necesario el fichero <<mount.sh>>, que se encargará de utilizar las instrucciones de <<Dockerfile>> para construir y desplegar la imagen en un contenedor \textit{Docker}. Los dos ficheros <<install\_workflows\_wrapper.sh>> y <<my\_tool\_list.yml>> son utilidades para la instalación de workflows y herramientas de \textit{Galaxy} respectivamente. Las herramientas indicadas se instalarán desde el <<tool shed>> de \textit{Galaxy}, mientras que los workflows se encontrarán en el directorio <<workflows>>.
+Todos los componentes necesarios para construir la imagen \textit{Docker} de \textit{Galaxy} se encuentran en el directorio <<build>>. El fichero más relevante es el \textit{Dockerfile}, que contiene todas las directivas que indican cómo construir esta imagen. En concreto, realiza algunas variaciones sobre una imagen ya existente. Para realizar este montaje, será necesario el fichero <<mount.sh>>, que se encargará de utilizar las instrucciones de <<Dockerfile>> para construir y desplegar la imagen en un contenedor \textit{Docker}. Los dos ficheros <<install\_workflows\_wrapper.sh>> y <<my\_tool\_list.yml>> son utilidades para la instalación de workflows y herramientas de \textit{Galaxy} respectivamente. Las herramientas indicadas se instalarán desde el <<tool shed>> de \textit{Galaxy}, mientras que los workflows se encontrarán en el directorio <<workflows>>.
 
 \subsection{Directorio de desarrollo: \textit{<<dev>>}}
 Las utilidades desarrolladas en \textit{Python} se almacenan en este directorio. Aquí encontramos dos ficheros principales, <<GalaxyWorkflow.py>> y <<OutputToXls.py>. El primero de ellos es el encargado de simplificar la utilización del workflow a los usuarios. Basándose en la API de \textit{Galaxy} a través del uso de la librería \textit{BioBlend}, se identifica en \textit{Galaxy} utilizando las credenciales indicadas en el fichero <<credentials.py>>. A continuación, genera nuevos historiales para almacenar los datos de entrada y los futuros datos de salida. Buscará dentro de los directorios <<Forward>> y <<Reverse>> los ficheros de las secuencias a analizar. Con ellos creará dos colecciones que servirán como entrada definitiva del workflow. Una vez ejecutado, el script se encargará de descargar los ficheros de salida de las tres últimas herramientas, que son los que en este caso se desean utilizar posteriormente.

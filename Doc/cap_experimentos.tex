@@ -1,8 +1,104 @@
-\chapter{Experimentos Realizados y Resultados}
+\chapter{Experimentos Realizados y Resultados: Análisis de \textit{Campylobacter jejuni}}
 \label{chap:experimentos}
 
-\lsection{Escenario de pruebas}
+Aunque el objetivo del proyecto no se centra en el análisis en profundidad de un experimento en concreto, sí resulta enriquecedor para el conjunto del desarrollo comprobar el funcionamiento del workflow en un caso real.
 
-\lsection{Caso real: análisis de \textit{Campylobacter jejuni}}
+Se trata de una situación en la que se dispone de cuarenta y seis cepas de \textit{Campylobacter jejuni}. El objetivo de los análisis ha sido definir la estructura poblacional de las muestras recogidas en el matadero y secuenciadas posteriormente con un equipo \textit{Illumina}.
+
+La toma de muestras~\cite{garciasanchez2017} se realizó en un matadero de aves de corral del norte de España. Se tomaron muestras tanto en superficies que entran en contacto con la comida (FCS) como de superficies que no entran en contacto (NFCS). También se realizó una división en el momento de recogida de las muestras: la primera mitad se tomaron justo después de la matanza, mientras que la segunda mitad se tomaron media hora después de que se realizase la limpieza y desinfección de las instalaciones.
+
+Para aislar las cepas de \textit{Campylobacter} de las muestras se utilizó un caldo de cultivo Preston. Una vez aisladas las colonias en medio de cultivo de agar, se identificaron las cepas mediante \textit{RT-PCR} usando dos genes diana hipO y ceuE. A continuación, se extrajo el ADN de las muestras aisladas de \textit{Campylobacter jejuni} para pasar a realizar la secuenciación con el equipo \textit{Illumina}.
+
+Disponiendo de estos datos, se ha puesto en marcha la ejecución del workflow en un equipo de sobremesa con 16 GB de memoria RAM y un procesador de 4 núcleos a 3.6 Ghz, en el que el proceso completo ha llevado unas 17 horas. De él, obtenemos tanto los datos de salida estándar de las herramientas \textit{Roary}, \textit{ABRicate} y \textit{Prokka}, como un fichero \textit{xls} en el que se agrupan todos los datos finales. Los principales resultados obtenidos, por lo tanto, son una serie de tablas en las que se indica qué cepas contienen cada gen y un conjunto de parámetros más concretos sobre los genes y su situación.
+
+Una vez está disponible este fichero de resultados, se podría plantear un análisis en profundidad sobre cualquier conjunto de los genes obtenidos. Como ejemplo, se puede tener en cuenta una situación en la que se desease analizar una serie de genes conocidos por participar en los procesos relacionados con la virulencia~\cite{garciasanchez2017} de \textit{Campylobacter}. En este caso, supongamos que se tienen en cuenta los genes flaA, cadF, racRy dnaJ, relacionados con la adherencia y la colonización; virB11, ciaB y pldA, relacionados con la invasión; cdtA, cdtB y cdtC, relacionados con la expresión de citotoxina; y epsH e ilvE, relacionados también con la virulencia. 
+
+En la tabla \ref{table:GenesVirulencia} podemos observar en número de coincidencias de los genes mencionados en las cepas analizadas. Este caso no pretende ser un análisis en profundidad, ya que eso se saldría de los objetivos del proyecto, sino servir como ejemplo al tipo de análisis que pueden llevarse a cabo utilizando el workflow desarrollado.
+
+\begin{table}[!h]
+
+\begin{center}
+\begin{tabularx}{\textwidth}{bs}
+\arrayrulecolor{NavyBlue}\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{NavyBlue}{Genes relacionados con la adherencia y la colonización}}}\\
+
+\quad flaA &
+\begin{minipage}[t]{\linewidth}%
+46 cepas
+\end{minipage}\\
+
+\quad cadF &
+\begin{minipage}[t]{\linewidth}%
+0 cepas
+\end{minipage}\\
+
+\quad racRy &
+\begin{minipage}[t]{\linewidth}%
+0 cepas
+\end{minipage}\\
+
+\quad dnaJ &
+\begin{minipage}[t]{\linewidth}%
+46 cepas
+\end{minipage}\\
+
+\arrayrulecolor{NavyBlue}\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{NavyBlue}{Genes relacionados con la invasión}}} \\
+
+\quad virB11 &
+\begin{minipage}[t]{\linewidth}%
+0 cepas
+\end{minipage}\\
+
+\quad ciaB  &
+\begin{minipage}[t]{\linewidth}%
+0 cepas
+\end{minipage}\\
+
+\quad pldA &
+\begin{minipage}[t]{\linewidth}%
+46 cepas
+\end{minipage}\\
 
 
+\arrayrulecolor{NavyBlue}\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{NavyBlue}{Genes relacionados con la expresión de citotoxina}}}\\
+\quad cdtA &
+\begin{minipage}[t]{\linewidth}%
+46 cepas
+\end{minipage}\\
+
+\quad cdtB  &
+\begin{minipage}[t]{\linewidth}%
+46 cepas
+\end{minipage}\\
+
+\quad cdtC &
+\begin{minipage}[t]{\linewidth}%
+0 cepas
+\end{minipage}\\
+
+\arrayrulecolor{NavyBlue}\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{NavyBlue}{Genes relacionados con otros factores de virulencia}}}\\
+
+\quad epsH &
+\begin{minipage}[t]{\linewidth}%
+33 cepas
+\end{minipage}\\
+
+\quad ilvE &
+\begin{minipage}[t]{\linewidth}%
+44 cepas
+\end{minipage}\\
+\hline
+
+
+\end{tabularx}
+\end{center}
+\caption{Análisis de genes relacionados con virulencia en \textit{Campylobacter jejuni}}
+\label{table:GenesVirulencia}
+\end{table}

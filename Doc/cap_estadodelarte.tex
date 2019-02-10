@@ -2,10 +2,13 @@
 \label{chap:estadodelarte}
 
 \section{Técnicas en bioinformática}
+
 \subsection{Control de calidad}
 Las nuevas técnicas de secuenciación masiva proporcionan una gran ventaja en cuanto a la velocidad de lectura de las secuencias~\cite{ngs}. Sin embargo, hay que tener especial precaución en el análisis de la calidad de estas, ya que una mayor velocidad puede llegar a implicar errores en las lecturas en algunos casos. Especialmente, en aquellos en los que se va a realizar un análisis en el que se pueden transmitir estos errores a través de cada una de las herramientas que componen el proceso, pudiendo llegar a provocar conclusiones erróneas al final del análisis.
 
-Los artefactos\footnote{Secuencia atípica que normalmente no debería existir en cierto contexto.}, las lecturas de baja calidad, las inserciones y deleciones y la contaminación con adaptadores\footnote{Oligonucleótido sintentizado artificialmente que puede unirse a secuencias de ADN y ARN.} y \textit{primers}\footnote{Secuencia de ADN o ARN que sirve como punto de partida para la síntesis de ADN.} son varias de las causas que pueden llevar a análisis problemáticos~\cite{plosone}. No obstante, en la actualidad, existen numerosos métodos enfocados al tratamiento de estos problemas, normalmente agrupados en herramientas entre las que destacan algunas como \textit{FastQC}~\cite{fastqc} o \textit{Prinseq}~\cite{schmieder_prinseq}.
+Uno de los principales factores a tener en cuenta es el método de secuenciación que se haya seguido para obtener las lecturas. Por ejemplo, la tecnología de \textit{Illumina} presenta ciertas complicaciones a raíz de la utilización de adaptadores y primers durante la secuenciación. Al comienzo de ese proceso, durante la preparación de las secuencias, se requiere que se unan a la placa se secuenciación. Para ello, se utilizan adaptadores: cadenas de nucleótidos que se unen a los dos extremos de la secuencia, permitiendo el enlace con los adaptadores complementarios existentes en la placa. Además, para multiplicar el número de secuencias disponibles, se realiza un proceso de PCR, que consiste en replicar las secuencias utilizando polimerasa (la enzima encargada de la replicación y transcripción de ADN). Para que la polimerasa comience este proceso, necesitará reconocer unos patrones concretos en la secuencia de ADN, denominados primers, que deberán haber sido añadidos previamente.
+
+La contaminación con adaptadores y primers utilizados en el proceso de secuenciación, los artefactos (uniones inespecíficas), las lecturas de baja calidad, las inserciones y deleciones son varias de las causas que pueden llevar a análisis problemáticos~\cite{plosone}. No obstante, en la actualidad, existen numerosos métodos enfocados al tratamiento de estos problemas, normalmente agrupados en herramientas entre las que destacan algunas como \textit{FastQC}~\cite{fastqc} o \textit{Prinseq}~\cite{schmieder_prinseq}.
 
 \subsection{Ensamblado}
 Los sistemas de secuenciación actuales pierden calidad cuando aumenta el tamaño de las lecturas, por lo tanto, se generan gran cantidad de pequeñas lecturas que deberemos unir. El objetivo del proceso de ensamblado es recoger todos estos fragmentos menores que conformarían una secuencia mayor para alinearlos y empalmarlos con el objetivo de reconstruirla~\cite{assembly_wiki}. Dada la tendencia al aumento de la cantidad de datos a procesar por los ensambladores a raíz de las nuevas técnicas de secuenciación, estos se han visto empujados a emplear técnicas cada vez más eficientes para evitar crear un cuello de botella en esta fase del análisis. Los diferentes aspectos de cada secuenciación como el tamaño, si se trata de un organismo procariota o eucariota, de un transcriptoma, metagenoma, etc, influyen en la eficacia de unos u otros algoritmos. En nuestro caso, al tratarse de bacterias, cuyo genoma es pequeño, se ha decidido utilizar una herramienta destinada a esta característica, como es \textit{SPAdes}~\cite{Nurk2013}. 
@@ -36,33 +39,33 @@ En algunos casos el proceso se basa en la ejecución de un pipeline automático 
 \textbf{\textcolor{NavyBlue}{Características objetivo}}\\
 \quad Prodigal~\cite{Hyatt2010} &
 \begin{minipage}[t]{\linewidth}
-~~~~Secuencias codificantes (CDS)
+\quad Secuencias codificantes (CDS)
 \end{minipage}\\
 
 \quad RNAmmer~\cite{Lagesen2007} &
 \begin{minipage}[t]{\linewidth}
-~~~~ARN Ribosómico (rRNA)
+\quad ARN Ribosómico (rRNA)
 \end{minipage}\\
 
 \quad Aragorn~\cite{Laslett2004} &
 \begin{minipage}[t]{\linewidth}
-~~~~ARN de transferencia
+\quad ARN de transferencia
 \end{minipage}\\
 
 \quad SignalP~\cite{Petersen2011} &
 \begin{minipage}[t]{\linewidth}
-~~~~Péptidos señal
+\quad Péptidos señal
 \end{minipage}\\
 
 \quad Infernal~\cite{Kolbe2011} &
 \begin{minipage}[t]{\linewidth}
-~~~~ARN no codificante
+\quad ARN no codificante
 \end{minipage}\\
 \hline
 \end{tabularx}
 \end{center}
-\label{table:ProkkaTools}
 \caption{Herramientas externas de \textit{Prokka}}
+\label{table:ProkkaTools}
 \end{table}
 
 \subsection{Análisis de resistencia a antibióticos}
@@ -83,7 +86,7 @@ Existe una gran variedad de plataformas sobre las que construir y ejecutar un wo
 \subsection{Virtualización}
 Llamamos virtualización a un conjunto de tecnologías destinadas a simular componentes hardware en forma de software. Eso permite la creación de entornos en los que podemos disponer de software y hardware dentro de nuestro propio sistema. Por ejemplo, existe la posibilidad de establecer un sistema \textit{Ubuntu} virtual dentro de un sistema Windows antifrión. En el caso de este ejemplo, estaríamos hablando de una virtualización total, en la que se simula el sistema operativo completo, lo que supone una carga muy pesada debido a que existirá una gran cantidad de software que no va a ser utilizado. En los últimos años se han ido mejorando las técnicas de virtualización parcial, en las que es posible contener solamente la parte mínima de sistema operativo y de software necesarios para la herramienta que queramos simular. Estas técnicas se basan en contenedores, en los que se encapsulan las imágenes con las dependencias necesarias para su funcionamiento. Entre las herramientas más utilizadas, destaca \textit{Docker}~\cite{Docker}, siendo la más reconocida por su popularidad entre los usuarios.
 
-Dado que existe una imagen \textit{Galaxy} estable para \textit{Docker} a partir de la cual poder trabajar, así como una capa adicional desarrollada para el mismo grupo de investigación anteriormente, \textit{Docker} es el sistema que más se adecúa a las necesidades del proyecto.
+Dado que existe una imagen \textit{Galaxy} estable para \textit{Docker} a partir de la cual poder trabajar, así como una capa adicional desarrollada anteriormente para el mismo grupo de investigación, podemos concluir que \textit{Docker} es el sistema que más se adecúa a las necesidades del proyecto.
 
 
 \newpage \thispagestyle{empty} % Página vacía 

@@ -5,28 +5,28 @@
 
 \section{Motivación del proyecto}
 
-\textit{Campylobacter jejuni} es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento~\cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor número de intoxicaciones alimentarias en los países tanto desarrollados como en vías de desarrollo. Por ejemplo, en la EU en el año 2016 se declararon del orden de 250.000 casos comprobados~\cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminación más habitual es el consumo de carne de pollo poco cocinada~\cite{GarciaSanchez2018}. El grupo de investigación Tecnofood\footnote{\url{https://www.ubu.es/tecnologia-de-los-alimentos-tecnofood}} lleva varios años investigando sobre las fuentes de contaminación de este microorganismo a lo largo de la cadena alimentaria~\cite{garciasanchez2017, GarciaSanchez2018, Melero2012}. En la actualidad se dispone de una colección de Campylobacter spp. de alrededor de 2000 cepas. Con el fin de obtener una información más precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos se han secuenciado con un equipo MiSeq (Illumina) 45 de ellas.
+\textit{Campylobacter jejuni} es una bacteria Gram negativa que, a pesar de tener unas condiciones complicadas de crecimiento~\cite{garciasanchez2017}, es la zoonosis bacteriana que produce un mayor número de intoxicaciones alimentarias en los países tanto desarrollados como en vías de desarrollo. Por ejemplo, en la EU en el año 2016 se declararon del orden de 250.000 casos comprobados~\cite{report2016}. El coste debido a la campilobacteriosis se estima en la EU en torno a 2,4 billones de euros anuales. La fuente de contaminación más habitual es el consumo de carne de pollo poco cocinada~\cite{GarciaSanchez2018}. El grupo de investigación Tecnofood\footnote{\url{https://www.ubu.es/tecnologia-de-los-alimentos-tecnofood}} lleva varios años investigando sobre las fuentes de contaminación de este microorganismo a lo largo de la cadena alimentaria~\cite{garciasanchez2017, GarciaSanchez2018, Melero2012}. En la actualidad se dispone de una colección de \textit{Campylobacter} spp. de alrededor de 2000 cepas. Con el fin de obtener una información más precisa sobre la persistencia de este microorganismo a lo largo de la cadena alimentaria, se han aislado varios genotipos persistentes en el matadero. De estos, se han secuenciado 46 con un equipo \textit{HiSeq} de (\textit{Illumina}).
 
-El proyecto consiste en diseñar un workflow que permita, a partir de los datos obtenidos en formato \textit{fastq} proporcionados por el equipo, conseguir realizar las fases filtrado de calidad, ensamblado y anotación, para poder tener la información de la secuencia de genes del genoma completo~\cite{Clark2016, Llarena2017, Zhao2016} de las cepas de \textit{Campylobacter jejuni} secuenciadas. En la actualidad, existen diferentes programas desarrollados por varios grupos de investigación internacional que se encargan de coordinar cada una de las tareas mencionadas, además de la relación de los datos de salida de unas herramientas con los de entrada de otras. Se trata de buscar la solución más eficaz y fácil de implementar y que dé los mejores resultados, utilizando preferiblemente una serie de herramientas estudiadas previamente. Adicionalmente, se requiere incorporar en este workflow, o en análisis paralelos, la posibilidad de detectar insertos de origen viral y/o plásmidos en el genoma y herramientas que permitan la comparación rápida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales~\cite{Skarp2015}, así como un estudio de la resistencia a antibióticos. Esta herramienta se ha demandado por parte de un grupo sin conocimientos informáticos, por lo que se requiere desarrollar un entorno de fácil uso por su parte.
+El proyecto consiste en diseñar un workflow que permita, a partir de los datos proporcionados por el equipo en formato \textit{fastq}, conseguir realizar las fases filtrado de calidad, ensamblado y anotación, para poder tener la información de la secuencia de genes del genoma completo~\cite{Clark2016, Llarena2017, Zhao2016} de las cepas de \textit{Campylobacter jejuni} secuenciadas. En la actualidad, existen diferentes programas desarrollados por varios grupos de investigación internacional que se encargan de coordinar cada una de las tareas mencionadas, además de la relación de los datos de salida de unas herramientas con los de entrada de otras. Se trata de buscar la solución más eficaz y fácil de implementar y que dé los mejores resultados, utilizando preferiblemente una serie de herramientas estudiadas previamente. Adicionalmente, se requiere incorporar en este workflow, o en análisis paralelos, la posibilidad de detectar insertos de origen viral y/o plásmidos en el genoma y herramientas que permitan la comparación rápida de los genomas de las distintas cepas aisladas, algunas de ellas pertenecientes a cepas altamente clonales~\cite{Skarp2015}, así como un estudio de la resistencia a antibióticos. Esta herramienta se ha demandado por parte de un grupo sin conocimientos informáticos, por lo que se requiere desarrollar un entorno de fácil uso por su parte.
 
-El proyecto plantea una colaboración entre los grupos ADMIRABLE \footnote{\url{https://www.ubu.es/advanced-data-mining-research-and-bioinformatics-learning-admirable}} y Tecnofood de la Universidad de Burgos. Especializados en informática y ciencia y tecnología de los alimentos respectivamente. Dada esta combinación de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinformática.
+El proyecto plantea una colaboración entre los grupos ADMIRABLE \footnote{\url{https://www.ubu.es/advanced-data-mining-research-and-bioinformatics-learning-admirable}} y Tecnofood de la Universidad de Burgos, especializados en informática y ciencia y tecnología de los alimentos respectivamente. Dada esta combinación de disciplinas, el proyecto se encuentra en el marco de los trabajos considerados dentro del campo de la bioinformática.
 
 
 \section{Objetivos y enfoque}
-El objetivo principal del proyecto es el desarrollo del workflow que permita el análisis de las cepas de \textit{Campylobacter jejuni}, para lo que se utilizarán \textit{Galaxy}~\cite{afgan2018galaxy} y las herramientas disponibles en la <<tool shed>> (conjunto de herramientas que ofrece \textit{Galaxy} para su instalación) para cada paso. \textit{Galaxy} es una herramienta que permite análisis computacionales de datos biológicos. 
+El objetivo principal del proyecto es el desarrollo de un workflow que permita el análisis genómico de cepas de \textit{Campylobacter jejuni}. Para ello, el primero de los objetivos es la utilización de la herramienta \textit{Galaxy}~\cite{afgan2018galaxy}, que permite realizar análisis computacionales de datos biológicos, y las herramientas disponibles en la <<tool shed>> (conjunto de herramientas que ofrece \textit{Galaxy} para su instalación).
 El segundo objetivo se centra en crear una herramienta de utilización simplificada del workflow, en la que los pasos para su ejecución se configuren automáticamente, y que se llevará a cabo utilizando \textit{Python} y la API de \textit{Galaxy} a través de Bioblend~\cite{Sloggett2013}. 
 Además, para facilitar el despliegue y ejecución de la herramienta desarrollada, se va a crear un contenedor \textit{Docker}. Por lo tanto, el siguiente objetivo parcial será desarrollar la imagen \textit{Docker} que sirva de base.
-Finalmente, se desea tener alguna forma sencilla de tratar los datos de salida del workflow, por lo que dentro de la interfaz gráfica se incluirán herramientas con las que gestionar toda la información resultante en forma de gráficos, tablas tipo hoja de cálculo, formatos \textit{pdf}, etc.
+Finalmente, se desea que el usuario pueda tratar de forma sencilla los datos de salida, por lo que dentro de la interfaz gráfica se incluirán herramientas con las que gestionar toda la información resultante en forma de gráficos, tablas tipo hoja de cálculo, formatos \textit{pdf}, etc.
 
-Objetivos del proyecto:
+Objetivos parciales del proyecto:
 \begin{itemize}
-\item Crear un sistema \textit{Docker} sobre el que desplegar el proyecto
-\item Desarrollar el workflow necesario para el análisis de las cepas en \textit{Galaxy}
-\item Desarrollar una capa de utilización simplificada del workflow
+\item Crear un sistema \textit{Docker} sobre el que desplegar el proyecto.
+\item Desarrollar el workflow necesario para el análisis de las cepas en \textit{Galaxy}.
+\item Desarrollar una capa de utilización simplificada del workflow.
 \item Añadir un sistema de gestión sencilla de los datos de salida.
 \end{itemize}
 
-En la tabla~\ref{table:HorasPlanDeTrabajo} podemos ver un despliegue con la planificación temporal de cada uno de estos objetivos.
+En la tabla~\ref{table:HorasPlanDeTrabajo} se muestra un despliegue con la planificación temporal de cada uno de estos objetivos.
 
 \section{Metodología y plan de trabajo}
 \subsection{Metodología}
@@ -86,8 +86,8 @@ La carga de trabajo, como aproximación a falta de conocer ciertos requisitos qu
 
 \end{tabularx}
 \end{center}
-\label{table:HorasPlanDeTrabajo}
 \caption{Estimación en horas del plan de trabajo}
+\label{table:HorasPlanDeTrabajo}
 \end{table}
 
 
@@ -127,7 +127,7 @@ Parte del trabajo de este sprint se ha destinado a la redacción de la propuesta
 
 \subsubsection{Sprint 6 (29/11/2018 - 12/12/2018)}
 El trabajo de este sprint se ha centrado en fragmentar el proceso del workflow lo máximo posible para detectar dónde se están produciendo los errores.
-Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con \textit{Spades}, ya que los problemas surgían en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se esta dando en la ejecución de \textit{Spades} con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes parámetros, se ha llegado a la conclusión de que no era un fallo de configuración de la herramienta, sino de hardware. Al ceder a \textit{Docker} una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
+Inicialmente se ha acortado el workflow hasta el paso de ensamblaje con \textit{Spades}, ya que los problemas surgían en este punto. Posteriormente se ha ejecutado el workflow individualmente en lugar de por colecciones. De esta manera, se ha detectado que el problema se está dando en la ejecución de \textit{Spades} con dos secuencias concretas: 590 y 443. Tras investigar probando varias ejecuciones con diferentes parámetros, se ha llegado a la conclusión de que no era un fallo de configuración de la herramienta, sino de hardware. Al ceder a \textit{Docker} una cantidad mayor de memoria RAM (8 Gb), el problema se ha solucionado. 
 A continuación, se ha pasado a ejecutar de nuevo por colecciones hasta el paso de \textit{Spades}, para comprobar si con este cambio ha sido suficiente para que la ejecución sea correcta con este formato. 
 
 También se ha realizado una modificación del fichero .\textit{gitignore} para mantener los archivos .\textit{pdf} generados por \LaTeX.
@@ -145,4 +145,17 @@ El trabajo en este sprint se ha enfocado a completar definitivamente la ejecuci�
 A continuación, se ha desarrollado un script \textit{Python} a partir del cual realizar todas las tareas necesarias para ejecutar el workflow, utilizando la API de \textit{Galaxy}.
 
 Se ha invertido el poco tiempo restante del sprint en el desarrollo de la documentación, definiendo la estructura de los apartados de <<estado del arte>> y <<sistema, diseño y desarrollo>>.
-\newpage \thispagestyle{empty} % Página vacía 
+
+\subsubsection{Sprint 9 (10/1/2019 - 23/1/2019)}
+En este sprint se ha buscado cerrar los últimos detalles del sistema de ejecución del workflow. Uno de los aspectos relevantes era evitar la instalación de \textit{Python} y sus dependencias al usuario. Para conseguirlo, se ha utilizado la utilidad \textit{Pyinstaller}, con la que se han generado ejecutables que no requieren de \textit{Python} y funcionan por sí mismos. 
+
+Una vez lista la fase de programación, gran parte del tiempo se va a centrar en la documentación de la memoria. En este caso, se ha redactado el capítulo 3: <<Sistema, diseño y desarrollo>>.
+
+\subsubsection{Sprint 10 (24/1/2019 - 6/2/2019)}
+Este sprint ha estado muy centrado en la documentación y en él se han redactado los capítulos <<Estado del arte>>, <<Manual de utilización>> y <<Manual del programador>>.
+
+Respecto a la programación, se han terminado algunas funcionalidades pendientes, como la creación del \textit{.xls} único con los resultados o funcionalidades relativas a los ficheros generados por \textit{Galaxy}.
+
+
+\subsubsection{Sprint 11 (7/2/2019 - 15/2/2019)}
+El último sprint se ha dedicado a terminar los capítulos pendientes <<Experimentos realizados>>, <<Resumen>> y <<Conclusiones y trabajo futuro>>. También se ha resuelto un bug por el cual, al cargar una cantidad mucho mayor de datos, los procesos de \textit{Galaxy} no se limitaban y el procesador no soportaba la ejecución.
