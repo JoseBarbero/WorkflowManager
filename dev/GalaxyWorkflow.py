@@ -74,32 +74,41 @@ gi.workflows.invoke_workflow(wf_id, wf_inputs, history_name=results_history_name
 # Export output files
 output_history_id = gi.histories.get_histories(name=results_history_name)[0]["id"]
 ini_time = time.time()
-while any([gi.jobs.get_state(job["id"]) != "ok" for job in gi.jobs.get_jobs()]):
-    time.sleep(60)
-    state = gi.histories.show_history(output_history_id, contents=False)["state_details"]
-    ok = state["ok"]
-    running = state["running"]
-    queued = state["queued"]
-    errors = state["error"]
-    paused = state["paused"]
-    sys.stdout.flush()
-    print("Please, wait. Workflow is running...")
-    time_running = time.time()-ini_time
-    print("Time running: "+str(datetime.timedelta(seconds=time_running)))
-    print("\t "+str(ok)+" jobs finished")
-    print("\t "+str(running)+" jobs running")
-    print("\t "+str(queued)+" jobs queued")
-    print("\t "+str(errors)+" jobs failed")
-    print("\t "+str(paused)+" jobs paused")
+
+keep=True
+while keep:
+    try:
+        keep = any([gi.jobs.get_state(job["id"]) not in ["ok", "error"] for job in gi.jobs.get_jobs()])
+        time.sleep(60)
+        state = gi.histories.show_history(output_history_id, contents=False)["state_details"]
+
+        ok = state["ok"]
+        running = state["running"]
+        queued = state["queued"]
+        errors = state["error"]
+        paused = state["paused"]
+        sys.stdout.flush()
+        print("Please, wait. Workflow is running...")
+        time_running = time.time()-ini_time
+        print("Time running: "+str(datetime.timedelta(seconds=time_running)))
+        print("\t "+str(ok)+" jobs finished")
+        print("\t "+str(running)+" jobs running")
+        print("\t "+str(queued)+" jobs queued")
+        print("\t "+str(errors)+" jobs failed")
+        print("\t "+str(paused)+" jobs paused")
+    except:
+        print("TIMEOUT")
+        pass
 
 # Create output directories
 output_dir = results_history_name
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-output_filter = ("roary", "prokka", "abricate")
+output_filter = ("roary", "prokka", "add")
+output_dirs = ("roary", "prokka", "abricate")
 
-for subdir in output_filter:
+for subdir in output_dirs:
     if not os.path.exists(output_dir+"/"+subdir):
         os.makedirs(output_dir+"/"+subdir)
 
@@ -111,6 +120,7 @@ for dataset in gi.histories.show_matching_datasets(output_history_id):
         file_name = file_name.replace(":", "_")
         file_name = file_name.replace(",", "")
         file_name = file_name.replace("RoaryPrueba", "Roary")
+        file_name = file_name.replace("Add_input_name_as_column", "ABRicate")
         file_name = file_name.lower()
         gi.histories.download_dataset(output_history_id, dataset["dataset_id"], output_dir+"/"+file_name.split("_")[0]+"/"+file_name, False)
 print("DONE")

@@ -3,6 +3,10 @@ tools:
   owner: 'iuc'
   tool_panel_section_label: 'Quality'
 
+- name: 'trimmomatic'
+  owner: 'pjbriggs'
+  tool_panel_section_label: 'Quality'
+
 - name: 'spades'
   owner: 'nml'
   tool_panel_section_label: 'Assembly'
@@ -18,3 +22,7 @@ tools:
 - name: 'barrnap'
   owner: 'iuc'
   tool_panel_section_label: 'Annotation'
+
+- name: 'add_input_name_as_column'
+  owner: 'mvdbeek'
+  tool_panel_section_label: 'Utils'

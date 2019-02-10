@@ -15,6 +15,10 @@ RUN add-tool-shed --url 'http://testtoolshed.g2.bx.psu.edu/' --name 'Test Tool S
 # Install Visualisation
 RUN install-biojs msa
 
+# Job config
+ADD job_conf.xml $GALAXY_ROOT/config/job_conf.xml
+RUN pip install pbs
+
 # Adding the tool definitions to the container
 ADD my_tool_list.yml $GALAXY_ROOT/my_tool_list.yml
 
@@ -25,9 +29,6 @@ RUN install-tools $GALAXY_ROOT/my_tool_list.yml
 ADD workflows/* $GALAXY_HOME/workflows/
 ADD install_workflows_wrapper.sh $GALAXY_ROOT/install_workflows_wrapper.sh
 RUN $GALAXY_ROOT/install_workflows_wrapper.sh $GALAXY_HOME/workflows/CJ_Worfklow.ga
-
-# Install Python dependencies
-RUN pip install bioblend
 
 # Mark folders as imported from the host.
 VOLUME ["/export/", "/data/", "/var/lib/docker"]
