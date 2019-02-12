@@ -3,7 +3,7 @@
 
 \section{Estructura general del sistema}
 
-El sistema desarrollado se ha basado en \textit{Docker} para evitar problemas de configuración y portabilidad, es decir, podrá ser desplegado en cualquier sistema que soporte esta tecnología. La estructura está basada en varias capas, todas ellas sobre el sistema anfitrión que elijamos, pudiendo adaptarse incluso a un servidor. En la figura   \ref{fig:DiagramaDelSistema} se puede apreciar la distribución de las capas mencionadas. 
+El sistema desarrollado\footnote{Disponible en \url{https://github.com/JoseBarbero/WorkflowManager}} se ha basado en \textit{Docker} para evitar problemas de configuración y portabilidad, es decir, podrá ser desplegado en cualquier sistema que soporte esta tecnología. La estructura está basada en varias capas, todas ellas sobre el sistema anfitrión que elijamos, pudiendo adaptarse incluso a un servidor. En la figura   \ref{fig:DiagramaDelSistema} se puede apreciar la distribución de las capas mencionadas. 
 
 \begin{itemize}
 \item La primera capa de esta estructura es el propio sistema anfitrión que, normalmente, será el equipo de utilice el usuario regularmente. Su única función es la de servir de base para la ejecución de la imagen {\itshape{Docker}}.
@@ -15,7 +15,7 @@ El sistema desarrollado se ha basado en \textit{Docker} para evitar problemas de
 
 \begin{figure}
     \begin{center}
-      \includegraphics[scale=0.5]{images/DiagramaDelSistema.png}
+      \includegraphics[scale=0.45]{images/DiagramaDelSistema.png}
       \caption{Estructura del sistema}
       \label{fig:DiagramaDelSistema}
     \end{center}
@@ -68,7 +68,7 @@ La configuración de \textit{Prokka} en \textit{Galaxy} no ha resultado complica
 \subsection{\itshape{Roary}}
 Uno de los objetivos principales del proyecto era la realización de un análisis pangenómico. Utilizando como entrada las anotaciones provenientes de \textit{Prokka} de todas las muestras, \textit{Roary}~\cite{Page2015} se encarga de calcular el pangenoma. Ha resultado ser una herramienta realmente rápida, con la que en unos minutos se obtienen los resultados.
 
-\textit{Roary} está desarrollado para recibir ficheros gff3 desde \textit{Prokka}, por lo que no debería haber problemas de compatibilidad (una vez solucionado el error de formato comentado en el punto anterior). El problema con la configuración de \textit{Roary} dentro del workflow es que, si se instala desde el repositorio oficial en el \textit{Tool Shed} de \textit{Galaxy}, no se obtiene ningún tipo de contenido en los ficheros de salida. Estudiando este problema, se llegó a la conclusión de que se podría deber a que la versión disponible en este repositorio no es la versión final publicada para escritorio. Por lo tanto, se creó una herramienta \textit{Galaxy} nueva utilizando la versión standalone de \textit{Roary}. Una vez disponible esta herramienta en \textit{Galaxy} y manteniendo la configuración establecida para la versión anterior, los ficheros fueron obtenidos correctamente.
+\textit{Roary} está desarrollado para recibir ficheros \textit{gff3} desde \textit{Prokka}, por lo que no debería haber problemas de compatibilidad (una vez solucionado el error de formato comentado en el punto anterior). El problema con la configuración de \textit{Roary} dentro del workflow es que, si se instala desde el repositorio oficial en el \textit{Tool Shed} de \textit{Galaxy}, no se obtiene ningún tipo de contenido en los ficheros de salida. Estudiando este problema, se llegó a la conclusión de que se podría deber a que la versión disponible en este repositorio no es la versión final publicada para escritorio. Por lo tanto, se creó una herramienta \textit{Galaxy} nueva utilizando la versión standalone de \textit{Roary}. Una vez disponible esta herramienta en \textit{Galaxy} y manteniendo la configuración establecida para la versión anterior, los ficheros fueron obtenidos correctamente.
 
 \textit{Roary} recibe todos los ficheros tratados por el workflow (a excepción de la salida independiente de \textit{ABRicate}) y sirve como herramienta final. La clasificación de cada cepa según su mejor coincidencia para cada gen con el pangenoma creado por \textit{Roary} no son enviados a ninguna otra herramienta dentro de \textit{Galaxy} y finalizan el workflow.
 

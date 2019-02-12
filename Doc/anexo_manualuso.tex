@@ -3,7 +3,7 @@
 En este apartado se detallarán todos los aspectos necesarios para la ejecución y el correcto funcionamiento del proyecto. Se guiará al usuario a través de todo el proceso, desde la instalación del software necesario hasta todas las utilidades que tienen que ver con el workflow, pasando por una breve guía de uso de \textit{Galaxy} orientada a nuestro caso.
 \section{Requisitos}
 
-\begin{table}[!h]
+\begin{table}[!ht]
 
 \begin{center}
 \begin{tabularx}{\textwidth}{bs}
@@ -30,13 +30,14 @@ En este apartado se detallarán todos los aspectos necesarios para la ejecución
 \caption{Requisitos del sistema}
 \label{table:Requisitos sistema}
 \end{table}
-En primer lugar, debido a la complejidad de las ejecuciones y al gran tamaño de la imagen \textit{Galaxy} y de los datos de entrada de las ejecuciones, se requiere de unos componentes hardware relativamente exigentes, como puede observarse en el cuadro \ref{table:Requisitos sistema}. Una de las herramientas utilizadas en el workflow, \textit{SPAdes}, necesita cargar gran cantidad de datos en memoria RAM, por lo que se recomienda una capacidad de 16 GB. Se requiere, también, de 20 GB de espacio libre en disco para almacenar cómodamente la imagen \textit{Galaxy} y los datos que se utilicen. El procesador es un aspecto menos restrictivo, pero las ejecuciones serán más lentas con peores procesadores. Como orientación, en un procesador de 8 núcleos a 3.6 Ghz, una ejecución con unos 10 GB de datos de entrada, tarda aproximadamente 3 horas.
+En primer lugar, debido a la complejidad de las ejecuciones y al gran tamaño de la imagen \textit{Galaxy} y de los datos de entrada, se requiere de unos componentes hardware relativamente exigentes, como puede observarse en el cuadro \ref{table:Requisitos sistema}. Una de las herramientas utilizadas en el workflow, \textit{SPAdes}, necesita cargar gran cantidad de datos en memoria RAM, por lo que se recomienda una capacidad de 16 GB. Se requiere, también, de 20 GB de espacio libre en disco para almacenar cómodamente la imagen \textit{Galaxy} y los datos que se utilicen. El procesador es un aspecto menos restrictivo, pero las ejecuciones serán más lentas con peores procesadores. Como orientación, en un procesador de 8 núcleos a 3.6 Ghz, una ejecución con unos 10 GB de datos de entrada, tarda aproximadamente 3 horas.
 
 En cuanto al software~\ref{table:Requisitos sistema}, el primer requisito es un sistema operativo Linux. Preferiblemente una versión cercana a \textit{Ubuntu 18.04.1}, la utilizada para el desarrollo.
 
 También será necesario disponer de \textit{Docker} en el equipo. Si no está instalado, en el apartado de <<Instalación de \textit{Docker}>> a continuación, se detallará el proceso a realizar.
 
 \section{Utilización}
+Antes de comenzar, el primer paso será descargar el proyecto del repositorio \url{https://github.com/JoseBarbero/WorkflowManager}.
 \subsection{Instalación de Docker}
 Partiendo de un sistema \textit{Ubuntu}, lo primero que deberemos instalar será \textit{Docker}. Para ello, abriremos la terminal de \textit{linux} y seguiremos el tutorial de su web oficial\footnote{\url{https://docs.docker.com/install/linux/docker-ce/ubuntu/}}. El primer paso será actualizar la lista de paquetes disponibles para la instalación. Para ello, escribiremos en la terminal:
     \begin{lstlisting}[language=bash]
@@ -108,7 +109,7 @@ Aunque existe una utilidad para simplificar el proceso de uso de workflow, expli
 
 Desde un navegador web cualquiera, si accedemos a la dirección <<\url{http://localhost:8080/}>>, veremos la página de inicio de \textit{Galaxy}. En ella, tendremos la posibilidad de identificarnos mediante la pestaña <<Login or Register>>. Existe un usuario preestablecido con correo <<admin@galaxy.org>> y contraseña <<admin>>. Una vez identificados como administrador tendremos la posibilidad de acceder a los workflows almacenados desde la pestaña <<Workflow>>. En ella, veremos un listado con todas las opciones posibles, la que nos interesa es <<CJ\_Workflow>>. Si desplegamos utilizando la flecha a la derecha del nombre, podremos acceder a las acciones con las que interaccionaremos con este workflow. La primera de ellas es el modo edición, a través de <<edit>>. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
       \includegraphics[scale=0.55]{images/SubidaDatasets.png}
       \caption{Interfaz de subida de los conjuntos de datos}
@@ -130,7 +131,7 @@ Una vez visto el proceso de introducción de datos de entrada, encontramos las h
 
 Los historiales son el sistema con el que \textit{Galaxy} ordena los conjuntos de datos del usuario. Desde la página de inicio <<Analyze Data>> podremos consultar el historial activo en este momento  en la parte derecha de la pantalla, pero este no tiene por qué ser el único que existe. Para consultar todos los historiales, desde la propia columna del historial activo, en la parte superior derecha, veremos tres símbolos con las opciones <<Refresh history>>, <<History options>> y <<View all histories>>. Desde esta última accederemos a una nueva pantalla en la que podremos consultar todos los historiales. Es posible que queramos ver conjuntos de datos ocultos de un historial, para ello, podremos activar la opción <<show hidden datasets>> situada debajo del nombre del historial.
 
-Una vez comprendido el funcionamiento del workflow y los historiales, podremos ejecutar el workflow. Para ello, accederemos de nuevo a la pestaña <<Workflow> y desde el desplegable de <<CJ\_Workflow>> seleccionaremos la opción <<run>>. Esto nos situará en una nueva pantalla en la que, de nuevo, podremos modificar todos los parámetros de las herramientas del workflow. Sin embargo, es algo opcional en este momento. El punto principal es la introducción de los datos de entrada, que se seleccionarán desde dos desplegables (uno para cada sentido de las lecturas) en los apartados <<Input dataset collection>>, indicados en la imagen \ref{fig:RunInputs}. Si hemos creado las colecciones como se ha explicado previamente, estas aparecerán en el desplegable y solo tendremos que seleccionarlas. El paso siguiente, teniendo en cuenta que no queremos modificar ningún parámetro, será la ejecución del workflow usando el botón <<Run Workflow>> de la parte superior derecha.
+Una vez comprendido el funcionamiento del workflow y los historiales, podremos ejecutar el workflow. Para ello, accederemos de nuevo a la pestaña <<Workflow>> y desde el desplegable de <<CJ\_Workflow>> seleccionaremos la opción <<run>>. Esto nos situará en una nueva pantalla en la que, de nuevo, podremos modificar todos los parámetros de las herramientas del workflow. Sin embargo, es algo opcional en este momento. El punto principal es la introducción de los datos de entrada, que se seleccionarán desde dos desplegables (uno para cada sentido de las lecturas) en los apartados <<Input dataset collection>>, indicados en la imagen \ref{fig:RunInputs}. Si hemos creado las colecciones como se ha explicado previamente, estas aparecerán en el desplegable y solo tendremos que seleccionarlas. El paso siguiente, teniendo en cuenta que no queremos modificar ningún parámetro, será la ejecución del workflow usando el botón <<Run Workflow>> de la parte superior derecha.
 
 A través del uso de los historiales, tendremos la opción de consultar el estado de las ejecuciones de cada una de las tareas del workflow. Teniendo en cuenta los pasos para consultar los historiales explicados anteriormente, podremos ver si una tarea se está ejecutando, en cola, pausada o si ha  causado algún error. Hay que tener en cuenta que es una ejecución computacionalmente muy costosa, por lo que puede llevar varias horas completarla. Por ello, es importante seguir el progreso a través del historial con el objetivo de asegurarnos de que no ha habido ningún error durante el proceso. Cuando todas las tareas se muestren en color verde, el workflow habrá completado su ejecución y podremos descargar los conjuntos de datos resultantes que nos interesen haciendo clic en ellos y seleccionando el icono con la opción <<download>>.
 
@@ -170,7 +171,7 @@ Por último, veamos como arrancar un ejecutable. Si suponemos que en el escritor
     $ ./run.sh
 \end{lstlisting}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
       \includegraphics[scale=0.8]{images/ls.png}
       \caption{Ejemplo de un comando ls}
