@@ -71,6 +71,7 @@ wf_inputs['1'] = {'src': 'hdca', 'id': reverse_collection["id"]}
 # Run Workflow
 gi.workflows.invoke_workflow(wf_id, wf_inputs, history_name=results_history_name)
 
+
 # Export output files
 output_history_id = gi.histories.get_histories(name=results_history_name)[0]["id"]
 ini_time = time.time()
@@ -78,7 +79,7 @@ ini_time = time.time()
 keep=True
 while keep:
     try:
-        keep = any([gi.jobs.get_state(job["id"]) not in ["ok", "error"] for job in gi.jobs.get_jobs()])
+        keep = any([gi.jobs.get_state(job["id"]) not in ["ok", "error", "deleted", "new"] for job in gi.jobs.get_jobs()])
         time.sleep(60)
         state = gi.histories.show_history(output_history_id, contents=False)["state_details"]
 
@@ -105,22 +106,25 @@ output_dir = results_history_name
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-output_filter = ("roary", "prokka", "add")
-output_dirs = ("roary", "prokka", "abricate")
+output_filter = ("roary", "prokka", "abricate", "spades")
 
-for subdir in output_dirs:
+for subdir in output_filter:
     if not os.path.exists(output_dir+"/"+subdir):
         os.makedirs(output_dir+"/"+subdir)
 
-# Download datasets
-for dataset in gi.histories.show_matching_datasets(output_history_id):
-    if dataset["name"].lower().startswith(output_filter):
-        file_name = dataset["name"]+"."+dataset["file_ext"]
-        file_name = file_name.replace(" ", "_")
-        file_name = file_name.replace(":", "_")
-        file_name = file_name.replace(",", "")
-        file_name = file_name.replace("RoaryPrueba", "Roary")
-        file_name = file_name.replace("Add_input_name_as_column", "ABRicate")
-        file_name = file_name.lower()
-        gi.histories.download_dataset(output_history_id, dataset["dataset_id"], output_dir+"/"+file_name.split("_")[0]+"/"+file_name, False)
+# Download dataset
+for dataset in gi.histories.show_history(output_history_id, contents=True):
+    if dataset["history_content_type"] == "dataset": # Roary es la única herramienta que no va por colecciones
+        if dataset["name"].lower().startswith("roary"): 
+            file_name = dataset["name"].split(" ")[0] + dataset["name"].split(" ")[-1]+"."+dataset["extension"]
+            gi.histories.download_dataset(output_history_id, dataset["id"], output_dir+"/"+"roary"+"/"+file_name, False)
+    elif dataset["history_content_type"] == "dataset_collection":
+        for element in gi.histories.show_dataset_collection(output_history_id, dataset["id"])["elements"]:
+            file_name = dataset["name"].split(" ")[0]+"_"+element["element_identifier"].split(".")[0]+"."+element["object"]["file_ext"]
+            if file_name.lower().startswith(output_filter):
+                for tool in output_filter:
+                    if dataset["name"].lower().startswith(tool):
+                        subdir = tool
+                gi.histories.download_dataset(output_history_id, element["object"]["id"], output_dir+"/"+subdir+"/"+file_name, False)
+
 print("DONE")
