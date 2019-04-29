@@ -121,6 +121,7 @@ for dataset in gi.histories.show_history(output_history_id, contents=True):
     elif dataset["history_content_type"] == "dataset_collection":
         for element in gi.histories.show_dataset_collection(output_history_id, dataset["id"])["elements"]:
             file_name = dataset["name"].split(" ")[0]+"_"+element["element_identifier"].split(".")[0]+"."+element["object"]["file_ext"]
+            file_name = file_name.replace("_R1", "")
             if file_name.lower().startswith(output_filter):
                 for tool in output_filter:
                     if dataset["name"].lower().startswith(tool):
