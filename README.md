@@ -55,3 +55,6 @@ and pangenomic analysis (Roary).
 
 Finally, this workflow has been tested using forty-six strains of Campylobacter jejuni, previously
 sequenced with an Illumina HiSeq and collected in a slaughterhouse in northern Spain.
+
+### Contact
+jabarbero@ubu.es
